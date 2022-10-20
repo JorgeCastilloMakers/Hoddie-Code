@@ -16,14 +16,14 @@
 <body>
 <!-- HEADER + NAVBAR SECTION -->
 <header class="header">
-    <div class="logo__container">
+    <div class="logo__container" id="up">
         <h1><span><</span>HoddieCode<span>/></span></h1>
     </div>
     <nav class="nav">
         <ul>
-            <li>Home</li>
-            <li>Collections</li>
-            <li>Contact</li>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="#colecction">Collections</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     <div class="icons__container">
@@ -53,7 +53,7 @@
     <div class="cards-latest-products">
         <div class="card-product">
             <div class="image_product_container">
-                <img src="/assets/img/front/1.png" alt="">
+                <img src="/assets/img/front/hoddie-js.png" alt="">
             </div>
             <h3>Title product HTML CSS</h3>
             <p>Category</p>
@@ -62,7 +62,7 @@
         </div>
         <div class="card-product">
             <div class="image_product_container">
-                <img src="/assets/img/front/2.png" alt="">
+                <img src="/assets/img/back/hoddie-kotlin.png" alt="">
             </div>
             <h3>Title product HTML CSS</h3>
             <p>Category</p>
@@ -71,7 +71,7 @@
         </div>
         <div class="card-product">
             <div class="image_product_container">
-                <img src="/assets/img/front/3.png" alt="">
+                <img src="/assets/img/front/tshirt-vue.png" alt="">
             </div>
             <h3>Title product HTML CSS</h3>
             <p>Category</p>
@@ -81,21 +81,21 @@
     </div>
 
 <!-- COLLECTIONS SECTION -->
-<section class="colecctions__container">
+<section class="colecctions__container" id="colecction">
     <h2>Collections<div></div></h2>
     <div class="collections_cards_container">
-        <a href="">
+        <a href="/frontendCategory.html">
             <img src="/assets/img/frontend-category.png" alt="">
             <span>Frontend</span>
         </a>
-        <a href="">
+        <a href="/backendCategory.html">
             <img src="/assets/img/backend-category.png" alt="">
             <span>Backend</span>
         </a>
     </div>
 </section>
 <!-- CONTACT SECTION -->
-<section class="contact__container">
+<section class="contact__container" id="contact">
     <div class="form__container">
         <h2>Contact Us!</h2>
         <p>Complete the following form to contact us.</p>
@@ -119,6 +119,10 @@
         <p>Email: info@hoddiecode.com</p>
     </div>
 </section>
+<!-- ARROW UP -->
+<div class="arrow">
+    <a href="#up"><i class="fa-solid fa-circle-chevron-up"></i></a>
+</div>
 <!-- FOOTER SECTION -->
 <footer>
     <div class="foot_copy">
