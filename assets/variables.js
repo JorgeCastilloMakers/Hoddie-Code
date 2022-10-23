@@ -170,4 +170,29 @@ let products = [
         collection: "backend",
         size: ["small", "large", "medium", "extra-large"],
         img: "/assets/img/back/hoddie-mongo.png"
-    }]
+    }];
+
+const productsContainer = document.getElementById('products_container');
+
+const breadCrumbs = document.getElementById('collectionFilter');
+
+const filtros = document.getElementById('filters');
+
+const template = document.getElementById('template');
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const btnContainer = document.getElementById('btn-add')
+
+//fn incrementar
+// var data=0;
+// document.getElementById("root").innerText=data;
+// function decrement(){
+//     data=data-1;
+//     document.getElementById("root").innerText=data;
+// }
+// function increment(){
+//     data=data+1;
+//     document.getElementById("root").innerText=data;
+// }
+

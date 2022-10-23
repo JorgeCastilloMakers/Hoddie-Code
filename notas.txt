@@ -1,0 +1,93 @@
+                <!-- <div class="image-product-galery">
+                    <a href="#image2">
+                        <img src="/assets/img/back-view-hoodie-mockup-of-a-woman-in-a-studio-featuring-trendy-stickers-m15210.png" alt="">
+                    </a>
+                    <a href="#image3">
+                        <img src="/assets/img/hoodie-mockup-featuring-a-serious-woman-posing-m20715-r-el2.png" alt="">
+                    </a>
+                    <a href="#image4">
+                        <img src="/assets/img/hoodie-mockup-of-an-e-guy-posing-in-front-of-a-white-background-m15136.png" alt="">
+                    </a>
+                    <a href="#image5">
+                        <img src="/assets/img/illustrated-hoodie-mockup-featuring-a-young-man-biting-a-cookie-m15145.png" alt="">
+                    </a>
+                </div> -->
+                <!-- <article class="light-box" id="image1">
+                    <a href="#image5" class="next"><i class="fa-solid fa-arrow-left"></i></a>
+                    <img src="/assets/img/hoodie-mockup-of-a-cool-young-woman-eating-a-lollipop-m15214.png" alt="">
+                    <a href="#image2" class="next"><i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="" class="close"><i class="fa-solid fa-xmark"></i></a>
+                </article>
+                <article class="light-box" id="image2">
+                    <a href="#image1" class="next"><i class="fa-solid fa-arrow-left"></i></a>
+                    <img src="/assets/img/back-view-hoodie-mockup-of-a-woman-in-a-studio-featuring-trendy-stickers-m15210.png" alt="">
+                    <a href="#image3" class="next"><i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="" class="close"><i class="fa-solid fa-xmark"></i></a>
+                </article>
+                <article class="light-box" id="image3">
+                    <a href="#image2" class="next"><i class="fa-solid fa-arrow-left"></i></a>
+                    <img src="/assets/img/hoodie-mockup-featuring-a-serious-woman-posing-m20715-r-el2.png" alt="">
+                    <a href="#image4" class="next"><i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="" class="close"><i class="fa-solid fa-xmark"></i></a>
+                </article>
+                <article class="light-box" id="image4">
+                    <a href="#image3" class="next"><i class="fa-solid fa-arrow-left"></i></a>
+                    <img src="/assets/img/hoodie-mockup-of-an-e-guy-posing-in-front-of-a-white-background-m15136.png" alt="">
+                    <a href="#image5" class="next"><i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="" class="close"><i class="fa-solid fa-xmark"></i></a>
+                </article>
+                <article class="light-box" id="image5">
+                    <a href="#image4" class="next"><i class="fa-solid fa-arrow-left"></i></a>
+                    <img src="/assets/img/illustrated-hoodie-mockup-featuring-a-young-man-biting-a-cookie-m15145.png" alt="">
+                    <a href="#image1" class="next"><i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="" class="close"><i class="fa-solid fa-xmark"></i></a>
+                </article> -->
+
+
+
+                  <div class="image-container">
+                <div class="image-product">
+                    <a href="#image1">
+                        <img class=".materialboxed" src="${img}" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="product-description">
+                <h2>
+                    Hoodie Code ${category}
+                </h2>
+                <h1>
+                    ${name}
+                </h1>
+                <p>
+                    The perfect hoodie for developers, choose the pattern and color that you like the most.
+                </p>
+                <label>Size</label>
+                <select id="selectSize">
+                    <option>${size1}</option>
+                    <option>${size2}</option>
+                    <option>${size3}</option>
+                    <option>${size4}</option>
+                    <option>${!size5 ? "": size5}</option>
+                   ${renderSize(product[0].size)}
+                </select>
+                <div class="price">
+                    <p>$${price}</p>
+                </div>
+                <div class="add-cart">
+                    <div class="quantity">
+                        <button class="quantity-btn">-</button>
+                        <h2 id="root">1</h2>
+                        <button class="quantity-btn">+</button>
+                    </div>
+                    <button class="add-cart-btn" id="btn-add" data-id="${id}"
+                    data-name="${name}"
+                    data-price="${price}"
+                    data-size="${size}"
+                    data-img="${img}"
+                    data-technologie="${technologie}">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                         Add to cart
+                    </button>
+                </div>
+            </div>
