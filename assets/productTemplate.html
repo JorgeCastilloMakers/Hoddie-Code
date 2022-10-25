@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/assets/front.css">
     <link rel="stylesheet" href="/assets/productTemplate.css">
     <script src="https://kit.fontawesome.com/379028bca9.js" crossorigin="anonymous"></script>
-    <title>Hoddie Code Store</title>
+    <title>Hoodie Code Store</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -19,21 +19,29 @@
 <!-- HEADER + NAVBAR SECTION -->
 <header class="header">
     <div class="logo__container">
-        <h1><span><</span>HoddieCode<span>/></span></h1>
+        <h1><span><</span>HoodieCode<span>/></span></h1>
     </div>
     <nav class="nav">
         <ul>
             <li><a href="/index.html">Home</a></li>
-            <li><a href="/index.html#colecction">Collections</a></li>
-            <li><a href="/index.html#contact">Contact</a></li>
+            <li><a href="#colecction">Collections</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     <div class="icons__container">
+        <div class="menu-label">
+         <i class="fa-solid fa-bars-staggered" id="icon"></i>   
+        </div>
         <i class="fa-solid fa-basket-shopping"><span>0</span></i>
         <div class="avatar_container">
             <img src="/assets/img/avatar.jpg" alt="">
         </div>
     </div>
+    <ul class="navbar-list" id="menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="#colecction">Collections</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </header>
     <section class="container-template">
         <div class="breadcrumbs_container"">
@@ -46,12 +54,27 @@
                         <img class=".materialboxed" src="" alt="">
                     </a>
                 </div>
+                <div class="image-product-galery">
+
+                </div> 
+                <div class="lightBox_container">
+
+                </div>
             </div>
             <div class="product-description">
                 <h2 id="productCategory"></h2>
                 <h1 id="productName"></h1>
                 <p>
-                    The perfect hoodie for developers, choose the pattern and color that you like the most.
+                Our "Swell" design on a 10 oz pullover hooded fleece.
+                Ultra warm. Ultra comfortable.
+                These sell through quickly when we make them.
+                Hoody Blank: 30 Poly/ 70 Cotton.
+                Printed with water based ink for a non obtrusive feel.
+                For sizing reference: I weigh 195 lbs, am 6'1", and wear an XL size
+                Fit: Standard Cut (not slim fit)
+                Pictured: Size medium
+                Minimum shrinkage
+                Designed and printed in Santa Cruz, Ca.
                 </p>
                 <label>Size</label>
                 <select id="selectSize">
@@ -71,11 +94,11 @@
     </section>
     <footer>
         <div class="foot_copy">
-            <p>Copyright © 2022 - HoddieCode</p>
+            <p>Copyright © 2022 - HoodieCode</p>
             <p>Realizado con ❤️ por Jorge Castillo <a href=""><i class="fa-brands fa-github"></i></a></p>
         </div>
         <div class="logo_icons_container">
-            <h2><span><</span>HoddieCode<span>/></span></h2>
+            <h2><span><</span>HoodieCode<span>/></span></h2>
             <div class="icons">
                 <i class="fa-brands fa-square-facebook"></i>
                 <i class="fa-brands fa-instagram"></i>
@@ -86,6 +109,7 @@
     </footer>
     <script>
     </script>
+    <script src="/assets/menus.js"></script>
     <script src="/assets/url.js"></script>
     <script src="/assets/transitions.js"></script>
     <script src="/assets/variables.js"></script>

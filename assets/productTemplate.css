@@ -47,16 +47,27 @@
     max-width: 80px;
     border-radius: 10px;
 }
-
+.lightBox_container{
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
 .light-box{
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, .5);
+    bottom: 0;
     transition: transform .3s ease-in-out;
     width: 100%;
     height: 100vh;
-    z-index: 100;
+    z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,6 +90,10 @@
 .close:hover{
     color: #FCDE03;
 }
+.close:target{
+    transform: scale(0);
+}
+
 .next{
     display: block;
     font-size: 25px;
@@ -111,7 +126,23 @@
     font-size: 15px;
     color: rgb(102, 102, 102);
 }
+.product-description > label{
+    font-size: 18px;
+    font-weight: 300;
+    color: #7D7D7D;
 
+}
+.product-description > select{
+    position: relative;
+    background-color: #FDFBFB;
+    border: 1px solid #FCDE03;
+    border-radius: 5px;
+    color: #7D7D7D;
+    text-transform: capitalize;
+}
+.product-description > select > option{
+    text-transform: capitalize;
+}
 .price{
     display: flex;
     justify-content: flex-start;
@@ -119,7 +150,7 @@
 
 }
 .price p{
-    font-size: 25px;
+    font-size: 35px;
     color: #000;
     font-weight: 700;
 }
@@ -139,7 +170,7 @@
 }
 
 .quantity h2{
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 500;
     text-align: center;
     color: #000;
@@ -148,7 +179,7 @@
     background-color: rgba(0, 0, 0, 0);
     border: none;
     color: #FCDE03;
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 700;
     cursor:pointer;
 }
@@ -167,5 +198,35 @@
     transform: translateY(-5px);
 }
 
-
+@media (max-width: 769px){
+    .container-template{
+    margin-top: 10%;
+    }
+    .product{
+    flex-direction: column;
+    }
+    .product-description{
+    align-items: center;   
+    }
+    .product-description h1{
+        text-align: center;
+        align-self: center;
+    }
+    .product-description p{
+        width: 80%;
+        text-align: center;
+    }
+    .product-description > label{
+        align-self: flex-start;
+        padding-left: 10%;
+    }
+    .product-description > select{
+        align-self: flex-start;
+        left: 10%;
+        width: 80%;
+    }
+    .add-cart{
+        justify-content: center;
+    }
+}
 

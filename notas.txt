@@ -91,3 +91,35 @@
                     </button>
                 </div>
             </div>
+
+
+
+Materials: 
+
+60 Cotton/ 40 Polyester
+
+Super Soft (Nothing worse than wearing a tee that feels like cardboard.)
+
+Pre-shrunk (minimum shrinking after washing)
+
+Printed with water based ink for a non obtrusive feel.
+
+
+Sizing/ Fit:
+
+Modern Fit (Not too slim, not too boxy)
+
+Unisex (Designed to fit humans)
+
+
+Sizing Reference:
+
+I weigh 195 lbs, am 6'1", and wear an XL size
+
+Pictured Tee (on flat lay): Size: Medium
+
+
+
+ruta boton add
+console.dir(productsContainer.children[0].children[4].innerText)
+

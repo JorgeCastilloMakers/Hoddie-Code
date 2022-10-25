@@ -1,13 +1,18 @@
 let products = [
     {
         id: 1,
-        name: "Kangoroo Hoddie HTML",
+        name: "Kangaroo Hoddie HTML",
         category: "Hoddie",
         price: 250,
         technologie: "html",
         collection: "frontend",
         size: ["small", "large", "medium"],
-        img: "/assets/img/front/hoddie-html.png"
+        img: "/assets/img/front/hoddie-html.png",
+        imgBig: "/assets/img/front/hoodie-html-big.png",
+        imgGallery1: "/assets/img/front/hoodie-html-gallery1.png",
+        imgGallery2: "/assets/img/front/hoodie-html-gallery2.png",
+        imgGallery3: "/assets/img/front/hoodie-html-gallery3.png",
+        imgGallery4: "/assets/img/front/hoodie-html-gallery4.png",
     }, {
         id: 2,
         name: "T-Shirt CSS3",
@@ -28,7 +33,7 @@ let products = [
         img: "/assets/img/front/sweat-sass.png"
     }, {
         id: 4,
-        name: "Kangoroo Hoddie UNITY",
+        name: "Kangaroo Hoddie UNITY",
         category: "Hoddie",
         price: 250,
         technologie: "unity",
@@ -46,7 +51,7 @@ let products = [
         img: "/assets/img/front/tshirt-gatsby.png"
     },{
         id: 6,
-        name: "Kangoroo Hoddie REACT",
+        name: "Kangaroo Hoddie REACT",
         category: "Hoddie",
         price: 250,
         technologie: "react",
@@ -64,7 +69,7 @@ let products = [
         img: "/assets/img/front/sweat-react.png"
     },{
         id: 8,
-        name: "Kangoroo Hoddie JAVASCRIPT",
+        name: "Kangaroo Hoddie JAVASCRIPT",
         category: "Hoddie",
         price: 250,
         technologie: "javascript",
@@ -100,7 +105,7 @@ let products = [
         img: "/assets/img/back/sweat-ruby.png"
     },{
         id: 12,
-        name: "Kangoroo Hoddie JAVASCRIPT",
+        name: "Kangaroo Hoddie JAVASCRIPT",
         category: "Hoddie",
         price: 250,
         technologie: "javascript",
@@ -109,7 +114,7 @@ let products = [
         img: "/assets/img/back/hoddie-js-logo.png"
     },{
         id: 13,
-        name: "Kangoroo Hoddie KOTLIN",
+        name: "Kangaroo Hoddie KOTLIN",
         category: "Hoddie",
         price: 250,
         technologie: "kotlin",
@@ -118,7 +123,7 @@ let products = [
         img: "/assets/img/back/hoddie-kotlin.png"
     },{
         id: 14,
-        name: "Kangoroo Hoddie PHP",
+        name: "Kangaroo Hoddie PHP",
         category: "Hoddie",
         price: 250,
         technologie: "php",
@@ -127,7 +132,7 @@ let products = [
         img: "/assets/img/back/hoddie-php.png"
     },{
         id: 14,
-        name: "Kangoroo Hoddie PYTHON",
+        name: "Kangaroo Hoddie PYTHON",
         category: "Hoddie",
         price: 250,
         technologie: "python",
@@ -162,14 +167,23 @@ let products = [
         size: ["small", "large", "medium", "extra-large"],
         img: "/assets/img/back/tshirt-mysql.png"
     },{
-        id: 14,
-        name: "Kangoroo Hoddie MONGODB",
+        id: 18,
+        name: "Kangaroo Hoddie MONGODB",
         category: "Hoddie",
         price: 250,
         technologie: "mongodb",
         collection: "backend",
         size: ["small", "large", "medium", "extra-large"],
         img: "/assets/img/back/hoddie-mongo.png"
+    },{
+        id: 19,
+        name: "Snapback REACT",
+        category: "Snapback",
+        price: 200,
+        technologie: "react",
+        collection: "frontend",
+        size: null,
+        img: "/assets/img/front/snapback-react.png"
     }];
 
 const productsContainer = document.getElementById('products_container');
@@ -184,15 +198,8 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const btnContainer = document.getElementById('btn-add')
 
-//fn incrementar
-// var data=0;
-// document.getElementById("root").innerText=data;
-// function decrement(){
-//     data=data-1;
-//     document.getElementById("root").innerText=data;
-// }
-// function increment(){
-//     data=data+1;
-//     document.getElementById("root").innerText=data;
-// }
+const lightBoxContainer = document.querySelector('.lightBox_container')
+
+const icon = document.getElementById('icon');
+const menu = document.getElementById('menu');
 
