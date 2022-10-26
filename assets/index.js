@@ -71,6 +71,7 @@ const renderFilters = () => {
 
 const renderCardProducts = (lista) => {
     const { id, name, category, price, technologie, size, img } = lista
+    console.log(lista)
         productsContainer.innerHTML += `
         <div class="card-product">
         <div class="image_product_container">
@@ -197,6 +198,8 @@ const renderProductTemplate = (product) =>{
 
 const renderSize = (sizeArr) => {
     if (sizeArr === null){
+        document.getElementById('option1').textContent = `Only Size`
+        document.getElementById('option1').value = `${sizeArr}`
         return
     }
     const [size1, size2, size3, size4, size5] = sizeArr;
@@ -278,6 +281,8 @@ const createCartProduct = (product) => {
 const productData = (id, name, price, img, size, quantity) => {
     return { id, name, price, img, size, quantity };
   };
+
+
 const addCart = (e) => {
     if (!e.target.classList.contains("add-cart-btn")) return;
     
@@ -292,6 +297,7 @@ const addCart = (e) => {
         createCartProduct(product);
       }
     saveLocalStorage()
+    renderCart();
 }
 
 const addCartFromProductsList = (e) =>{
@@ -309,22 +315,50 @@ const addCartFromProductsList = (e) =>{
             createCartProduct(product);
           }
         saveLocalStorage()
+        renderCart();
     }else if(product.size != "null"){
         location.href = `/assets/productTemplate.html?type=${tipo}&id=${product.id}`
-        console.log(product.size)
-        console.log("me voy")
     }
 }
+
+const addCartFromHome = (e) =>{
+    if (!e.target.classList.contains("add-cart-from-home")) return;
+    
+    let { id, name, price, img, size, quantity, collection} = e.target.dataset;
+    let product = productData(id, name, price, img, size, quantity, collection);
+    console.log(e.target.dataset.size)
+    if (product.size == "null"){
+        console.log("ESTOY ACA")
+        if (existingCartProduct(product)) {
+        
+            addUnitProductFromList(product);
+          } else {
+            createCartProduct(product);
+          }
+        saveLocalStorage()
+        renderCart();
+    }else if(product.size != "null"){
+        location.href = `/assets/productTemplate.html?type=${product.collection}&id=${product.id}`
+    }
+}
+
 const init = () => {
     icon?.addEventListener('click', openMenu)
-    window?.addEventListener('click', closeMenu)
-    window?.addEventListener("DOMContentLoaded", renderFilters)
-    window?.addEventListener("DOMContentLoaded", filterType)
+    document?.addEventListener('click', closeMenu)
+    cartIcon?.addEventListener('click', openCart)
+    document?.addEventListener('click', closeCart)
+    document.addEventListener("DOMContentLoaded", renderCartProduct);
+    document.addEventListener("DOMContentLoaded", renderCart(cart));
+    document?.addEventListener("DOMContentLoaded", findLatest)
+    latestProducts?.addEventListener('click', addCartFromHome)
+    document?.addEventListener("DOMContentLoaded", renderFilters)
+    document?.addEventListener("DOMContentLoaded", filterType)
     breadCrumbs.innerText = `${tipo}${!idProduct? "": "/Product-"+idProduct}`
-    window?.addEventListener("DOMContentLoaded", filterTemplate)
+    document?.addEventListener("DOMContentLoaded", filterTemplate)
     btnContainer?.addEventListener('click', addCart)
-    window?.addEventListener('DOMContentLoaded', changeSize)
+    document?.addEventListener('DOMContentLoaded', changeSize)
     productsContainer?.addEventListener('click', addCartFromProductsList)
+
 }
 
 init()

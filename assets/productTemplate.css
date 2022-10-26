@@ -200,7 +200,7 @@
 
 @media (max-width: 769px){
     .container-template{
-    margin-top: 10%;
+    margin-top: 15%;
     }
     .product{
     flex-direction: column;
@@ -227,6 +227,16 @@
     }
     .add-cart{
         justify-content: center;
+    }
+    .light-box{
+        z-index: 50;
+    }
+    .close{
+        z-index: 50;
+    }
+    .light-box img{
+        width: 80vw;
+        z-index: 50;
     }
 }
 

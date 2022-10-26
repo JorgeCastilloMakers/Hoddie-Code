@@ -29,7 +29,7 @@
         <div class="menu-label">
          <i class="fa-solid fa-bars-staggered" id="icon"></i>   
         </div>
-        <i class="fa-solid fa-basket-shopping"><span>0</span></i>
+        <i class="fa-solid fa-basket-shopping" id="cart-icon"><span id="counter">0</span></i>
         <div class="avatar_container">
             <img src="/assets/img/avatar.jpg" alt="">
         </div>
@@ -39,6 +39,22 @@
         <li><a href="#colecction">Collections</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="cart" id="cart-menu">
+        <h2>Cart</h2>
+        <img src="/assets/img/x-square.svg" id="close-cart" alt="">
+        <div class="cart_titles">
+            <p>#Id</p>
+            <p>Quantity</p>
+            <p>Product</p>
+            <p>Price</p>
+        </div>
+        <div id="cartProducts" class="product-cart-container">
+        
+        </div>
+        <h3 id="total">Total: $350</h3>
+        <button class="empty-cart">Empty Cart</button>
+        <button class="btn-pay">Pay Order</button>
+    </div>
 </header>
 <!-- HERO SECTION -->
 <section class="carousel-desktop">
@@ -76,36 +92,10 @@
 <!-- LATEST PRODUCTS -->
 <section class="latest_products_container">
     <h2>Latest Products<div></div></h2>
-    <div class="cards-latest-products">
-        <div class="card-product">
-            <div class="image_product_container">
-                <img src="/assets/img/front/hoddie-js.png" alt="">
-            </div>
-            <h3>Title product HTML CSS</h3>
-            <p>Category</p>
-            <h2>$200</h2>
-            <button>Add to cart</button>
-        </div>
-        <div class="card-product">
-            <div class="image_product_container">
-                <img src="/assets/img/back/hoddie-kotlin.png" alt="">
-            </div>
-            <h3>Title product HTML CSS</h3>
-            <p>Category</p>
-            <h2>$200</h2>
-            <button>Add to cart</button>
-        </div>
-        <div class="card-product">
-            <div class="image_product_container">
-                <img src="/assets/img/front/tshirt-vue.png" alt="">
-            </div>
-            <h3>Title product HTML CSS</h3>
-            <p>Category</p>
-            <h2>$200</h2>
-            <button>Add to cart</button>
-        </div>
-    </div>
+    <div class="cards-latest-products" id="latestProducts">
 
+    </div>
+</section>
 <!-- COLLECTIONS SECTION -->
 <section class="colecctions__container" id="colecction">
     <h2>Collections<div></div></h2>
@@ -172,6 +162,8 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="/assets/menus.js"></script>
+<script src="/assets/renderCards.js"></script>
+<script src="/assets/renderCart.js"></script>
 <script src="/assets/transitions.js"></script>
 <script src="/assets/variables.js"></script>
 <script src="/assets/index.js"></script>

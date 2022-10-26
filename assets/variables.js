@@ -163,7 +163,7 @@ let products = [
         category: "T-Shirt",
         price: 100,
         technologie: "mysql",
-        collection: "backend",
+        collection: "Backend",
         size: ["small", "large", "medium", "extra-large"],
         img: "/assets/img/back/tshirt-mysql.png"
     },{
@@ -172,7 +172,7 @@ let products = [
         category: "Hoddie",
         price: 250,
         technologie: "mongodb",
-        collection: "backend",
+        collection: "Backend",
         size: ["small", "large", "medium", "extra-large"],
         img: "/assets/img/back/hoddie-mongo.png"
     },{
@@ -181,10 +181,12 @@ let products = [
         category: "Snapback",
         price: 200,
         technologie: "react",
-        collection: "frontend",
+        collection: "Frontend",
         size: null,
         img: "/assets/img/front/snapback-react.png"
     }];
+
+const latestProducts = document.getElementById('latestProducts')
 
 const productsContainer = document.getElementById('products_container');
 
@@ -202,4 +204,10 @@ const lightBoxContainer = document.querySelector('.lightBox_container')
 
 const icon = document.getElementById('icon');
 const menu = document.getElementById('menu');
+
+const cartIcon = document.getElementById('cart-icon');
+const cartMenu = document.getElementById('cart-menu');
+const btnCloseCart = document.getElementById('close-cart')
+const cartProducts = document.getElementById('cartProducts')
+const totalCart = document.getElementById('total')
 

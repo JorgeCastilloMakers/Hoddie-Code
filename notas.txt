@@ -123,3 +123,63 @@ Pictured Tee (on flat lay): Size: Medium
 ruta boton add
 console.dir(productsContainer.children[0].children[4].innerText)
 
+ <!-- <div class="products-in-cart">
+                <div>
+                <p>#1</p>
+                <img src="/assets/img/front/hoddie-js.png" alt="">    
+                </div>
+                <div class="quantity-container">
+                    <p>1</p>
+                    <div class="btn-arrows">
+                        <img src="/assets/img/caret-up-fill.svg" alt="">
+                        <img src="/assets/img/caret-down-fill.svg" alt="">
+                    </div>
+                </div>
+                <h3>Kangaroo Hoodie JAVASCRIPT<span>Size: Medium</span></h3>
+                <h2>$250</h2>
+            </div>
+            <div class="products-in-cart">
+                <div>
+                <p>#5</p>
+                <img src="/assets/img/front/hoddie-react.png" alt="">   
+                </div>
+                <div class="quantity-container">
+                    <p>1</p>
+                    <div class="btn-arrows">
+                        <img src="/assets/img/caret-up-fill.svg" alt="">
+                        <img src="/assets/img/caret-down-fill.svg" alt="">
+                    </div>
+                </div>
+                <h3>Kangaroo Hoodie REACT<span>Size: Medium</span></h3>
+                <h2>$250</h2>
+            </div>
+            <div class="products-in-cart">
+                <div>
+                <p>#5</p>
+                <img src="/assets/img/front/hoddie-react.png" alt="">   
+                </div>
+                <div class="quantity-container">
+                    <p>1</p>
+                    <div class="btn-arrows">
+                        <img src="/assets/img/caret-up-fill.svg" alt="">
+                        <img src="/assets/img/caret-down-fill.svg" alt="">
+                    </div>
+                </div>
+                <h3>Kangaroo Hoodie REACT<span>Size: Medium</span></h3>
+                <h2>$250</h2>
+            </div>
+            <div class="products-in-cart">
+                <div>
+                <p>#5</p>
+                <img src="/assets/img/front/hoddie-react.png" alt="">   
+                </div>
+                <div class="quantity-container">
+                    <p>1</p>
+                    <div class="btn-arrows">
+                        <img src="/assets/img/caret-up-fill.svg" alt="">
+                        <img src="/assets/img/caret-down-fill.svg" alt="">
+                    </div>
+                </div>
+                <h3>Kangaroo Hoodie REACT<span>Size: Medium</span></h3>
+                <h2>$250</h2>
+            </div>
