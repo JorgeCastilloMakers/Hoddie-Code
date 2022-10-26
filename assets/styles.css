@@ -1006,3 +1006,24 @@ footer > .foot_copy > p > a > i:hover{
     filter: drop-shadow(0px 3px 6px #A09F9F);
 }
 
+.add-message {
+    padding: 2% 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    background-color: #fcdf039a;
+    backdrop-filter: blur(5px);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transition: all 0.5s ease-out;
+    text-align: center;
+    transform: translateY(200%);
+  }
+  
+  .active-message {
+    transform: translateY(0);
+    transition: all 0.5s ease-in;
+  }

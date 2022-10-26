@@ -57,7 +57,12 @@ let products = [
         technologie: "react",
         collection: "frontend",
         size: ["small", "large", "medium", "extra-large"],
-        img: "/assets/img/front/hoddie-react.png"
+        img: "/assets/img/front/hoddie-react.png",
+        imgBig: "/assets/img/front/react-big.png",
+        imgGallery1: "/assets/img/front/react-gallery1.png",
+        imgGallery2: "/assets/img/front/react-gallery2.png",
+        imgGallery3: "/assets/img/front/react-gallery3.png",
+        imgGallery4: "/assets/img/front/react-gallery4.png"
     },{
         id: 7,
         name: "Sweatshirt REACT",
@@ -179,11 +184,30 @@ let products = [
         id: 19,
         name: "Snapback REACT",
         category: "Snapback",
-        price: 200,
+        price: 50,
         technologie: "react",
         collection: "Frontend",
         size: null,
-        img: "/assets/img/front/snapback-react.png"
+        img: "/assets/img/front/snapback-react.png",
+        imgBig: "/assets/img/front/snapback-react-big.png",
+        imgGallery1: "/assets/img/front/snapback-react-gallery1.png",
+        imgGallery2: "/assets/img/front/snapback-react-gallery2.png",
+        imgGallery3: "/assets/img/front/snapback-react-gallery3.png",
+        imgGallery4: "/assets/img/front/snapback-react-gallery4.png",
+    },{
+        id: 20,
+        name: "Snapback Sass",
+        category: "Snapback",
+        price: 50,
+        technologie: "sass",
+        collection: "Frontend",
+        size: null,
+        img: "/assets/img/front/snapback-sass.png",
+        imgBig: "/assets/img/front/snapback-sass-big.png",
+        imgGallery1: "/assets/img/front/snapback-sass-gallery1.png",
+        imgGallery2: "/assets/img/front/snapback-sass-gallery2.png",
+        imgGallery3: "/assets/img/front/snapback-sass-gallery3.png",
+        imgGallery4: "/assets/img/front/snapback-sass-gallery4.png",
     }];
 
 const latestProducts = document.getElementById('latestProducts')
@@ -210,4 +234,6 @@ const cartMenu = document.getElementById('cart-menu');
 const btnCloseCart = document.getElementById('close-cart')
 const cartProducts = document.getElementById('cartProducts')
 const totalCart = document.getElementById('total')
+const countCart = document.getElementById('counter')
 
+const message = document.querySelector('.add-message')

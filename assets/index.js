@@ -69,8 +69,8 @@ const renderFilters = () => {
     }
 }
 
-const renderCardProducts = (lista) => {
-    const { id, name, category, price, technologie, size, img } = lista
+const renderCardProducts = async (lista) => {
+    const { id, name, category, price, technologie, size, img } = await lista
     console.log(lista)
         productsContainer.innerHTML += `
         <div class="card-product">
@@ -293,10 +293,13 @@ const addCart = (e) => {
     if (existingCartProduct(product)) {
         
         addUnitProductFromTemplate(product);
+        showMessage("Added a unit from this product")
       } else {
         createCartProduct(product);
+        showMessage("Product Added to cart")
       }
     saveLocalStorage()
+    renderCounter()
     renderCart();
 }
 
@@ -311,10 +314,13 @@ const addCartFromProductsList = (e) =>{
         if (existingCartProduct(product)) {
         
             addUnitProductFromList(product);
+            showMessage("Added a unit from this product")
           } else {
             createCartProduct(product);
+            showMessage("Product Added to cart")
           }
         saveLocalStorage()
+        renderCounter()
         renderCart();
     }else if(product.size != "null"){
         location.href = `/assets/productTemplate.html?type=${tipo}&id=${product.id}`
@@ -332,14 +338,30 @@ const addCartFromHome = (e) =>{
         if (existingCartProduct(product)) {
         
             addUnitProductFromList(product);
+            showMessage("Added a unit from this product")
           } else {
             createCartProduct(product);
+            showMessage("Product Added to cart")
           }
         saveLocalStorage()
+        renderCounter()
         renderCart();
     }else if(product.size != "null"){
         location.href = `/assets/productTemplate.html?type=${product.collection}&id=${product.id}`
     }
+}
+const showMessage = (msg) => {
+    message.classList.add("active-message");
+    message.textContent = msg;
+    setTimeout(() => {
+      message.classList.remove("active-message");
+    }, 1500);
+};
+
+const renderCounter = () => {
+    let count = cart.length;
+    console.log(count)
+    countCart.innerText = count
 }
 
 const init = () => {
@@ -347,6 +369,7 @@ const init = () => {
     document?.addEventListener('click', closeMenu)
     cartIcon?.addEventListener('click', openCart)
     document?.addEventListener('click', closeCart)
+    document.addEventListener("DOMContentLoaded", renderCounter);
     document.addEventListener("DOMContentLoaded", renderCartProduct);
     document.addEventListener("DOMContentLoaded", renderCart(cart));
     document?.addEventListener("DOMContentLoaded", findLatest)
