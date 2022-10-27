@@ -59,7 +59,10 @@ const filter = (category, size, tech)=> {
 
 }
 
-
+const resetFilter = () => {
+    renderFilters(tipo)
+    filterType()
+}
 
 
 

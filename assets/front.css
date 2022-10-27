@@ -40,9 +40,10 @@
 .filters-products{
     width: 90%;
     height: 100%;
+    min-height: 70vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 50px;
     margin-top: 2%;
     margin-bottom: 2%;

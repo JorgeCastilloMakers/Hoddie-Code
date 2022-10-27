@@ -24,7 +24,7 @@ const renderLatestProducts = (list) => {
         data-size="${size}"
         data-img="${img}"
         data-collection="${collection}"
-        data-technologie="${technologie}">${!size ? "Add to cart" : "View options"}</button>
+        data-technologie="${technologie}">${size === "Only size" ? "Add to cart" : "View options"}</button>
         </div>
         `
 }

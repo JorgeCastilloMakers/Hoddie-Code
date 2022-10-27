@@ -339,7 +339,7 @@ const addCartFromHome = (e) =>{
     let { id, name, price, img, size, quantity, collection} = e.target.dataset;
     let product = productData(id, name, price, img, size, quantity, collection);
     console.log(e.target.dataset.size)
-    if (product.size == "null"){
+    if (product.size === "Only size"){
         console.log("ESTOY ACA")
         if (existingCartProduct(product)) {
         
@@ -387,7 +387,7 @@ const init = () => {
     document?.addEventListener('DOMContentLoaded', changeSize)
     productsContainer?.addEventListener('click', addCartFromProductsList)
     btnFilter?.addEventListener('click', handleFilters)
-    
+    btnFilterReset?.addEventListener('click', resetFilter)
 }
 
 init()
