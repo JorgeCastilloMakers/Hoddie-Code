@@ -5,22 +5,27 @@ const saveLocalStorage = () => {
 const renderFilters = () => {
     if (tipo === "Backend"){
         filters.innerHTML = `
-        <label for="type">Type</label>
-        <select name="type" id="type">
-            <option value="kanguroo-hoddie">Kangoroo Hoddie</option>
+        <label for="category">Category</label>
+        <select name="Category" id="category">
+            <option value="0"></option>
+            <option value="hoddie">Hoddie</option>
             <option value="sweatshirt">Sweatshirt</option>
             <option value="t-shirt">T-Shirt</option>
+            <option value="snapback">Snapback</option>
         </select>
         <label for="size">Size</label>
         <select name="size" id="size">
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-            <option value="extra-large">Extra Large</option>
-            <option value="extra-extra-large">Extra Extra Large</option>
+        <option value="0"></option>
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+        <option value="extra-large">Extra Large</option>
+        <option value="extra-extra-large">Extra Extra Large</option>
+        <option value="Only size">Only Size</option>
         </select>
         <label for="technologies">Technologies</label>
         <select name="technologies" id="technologies">
+            <option value="0"></option>
             <option value="php">PHP</option>
             <option value="mysql">MYSQL</option>
             <option value="kotlin">KOTLIN</option>
@@ -31,28 +36,31 @@ const renderFilters = () => {
             <option value="python">PYTHON</option>
             <option value="mongodb">MONGODB</option>
         </select>
-        <button>Reset Filter</button>
-        <button>Filter</button>
         `
         return
     }else if (tipo === "Frontend"){
         filters.innerHTML = `
-        <label for="type">Type</label>
-        <select name="type" id="type">
-            <option value="kanguroo-hoddie">Kangoroo Hoddie</option>
+        <label for="category">Category</label>
+        <select name="Category" id="category">
+            <option value="0"></option>
+            <option value="hoddie">Hoddie</option>
             <option value="sweatshirt">Sweatshirt</option>
             <option value="t-shirt">T-Shirt</option>
+            <option value="snapback">Snapback</option>
         </select>
         <label for="size">Size</label>
         <select name="size" id="size">
+            <option value="0"></option>
             <option value="small">Small</option>
             <option value="medium">Medium</option>
             <option value="large">Large</option>
             <option value="extra-large">Extra Large</option>
             <option value="extra-extra-large">Extra Extra Large</option>
+            <option value="Only size">Only Size</option>
         </select>
         <label for="technologies">Technologies</label>
         <select name="technologies" id="technologies">
+            <option value="0"></option>
             <option value="html">HTML</option>
             <option value="css3">CSS3</option>
             <option value="react">REACT</option>
@@ -63,15 +71,13 @@ const renderFilters = () => {
             <option value="typescript">TYPESCRIPT</option>
             <option value="gatsby">GATSBY</option>
         </select>
-        <button>Reset Filter</button>
-        <button>Filter</button>
         `
     }
 }
 
-const renderCardProducts = async (lista) => {
-    const { id, name, category, price, technologie, size, img } = await lista
-    console.log(lista)
+const renderCardProducts = (lista) => {
+
+    const { id, name, category, price, technologie, size, img } = lista
         productsContainer.innerHTML += `
         <div class="card-product">
         <div class="image_product_container">
@@ -87,7 +93,7 @@ const renderCardProducts = async (lista) => {
         data-price="${price}"
         data-size="${size}"
         data-img="${img}"
-        data-technologie="${technologie}">${!size ? "Add to cart" : "View options"}</button>
+        data-technologie="${technologie}">${size === "Only size" ? "Add to cart" : "View options"}</button>
         </div>
         `
 }
@@ -197,7 +203,7 @@ const renderProductTemplate = (product) =>{
 }
 
 const renderSize = (sizeArr) => {
-    if (sizeArr === null){
+    if (sizeArr === "Only size"){
         document.getElementById('option1').textContent = `Only Size`
         document.getElementById('option1').value = `${sizeArr}`
         return
@@ -309,7 +315,7 @@ const addCartFromProductsList = (e) =>{
     let { id, name, price, img, size, quantity} = e.target.dataset;
     let product = productData(id, name, price, img, size, quantity);
     console.log(e.target.dataset.size)
-    if (product.size == "null"){
+    if (product.size === "Only size"){
         console.log("ESTOY ACA")
         if (existingCartProduct(product)) {
         
@@ -360,7 +366,6 @@ const showMessage = (msg) => {
 
 const renderCounter = () => {
     let count = cart.length;
-    console.log(count)
     countCart.innerText = count
 }
 
@@ -381,7 +386,8 @@ const init = () => {
     btnContainer?.addEventListener('click', addCart)
     document?.addEventListener('DOMContentLoaded', changeSize)
     productsContainer?.addEventListener('click', addCartFromProductsList)
-
+    btnFilter?.addEventListener('click', handleFilters)
+    
 }
 
 init()

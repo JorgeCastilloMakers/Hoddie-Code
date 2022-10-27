@@ -187,7 +187,7 @@ let products = [
         price: 50,
         technologie: "react",
         collection: "Frontend",
-        size: null,
+        size: ["Only size"],
         img: "/assets/img/front/snapback-react.png",
         imgBig: "/assets/img/front/snapback-react-big.png",
         imgGallery1: "/assets/img/front/snapback-react-gallery1.png",
@@ -201,7 +201,7 @@ let products = [
         price: 50,
         technologie: "sass",
         collection: "Frontend",
-        size: null,
+        size: ["Only size"],
         img: "/assets/img/front/snapback-sass.png",
         imgBig: "/assets/img/front/snapback-sass-big.png",
         imgGallery1: "/assets/img/front/snapback-sass-gallery1.png",
@@ -237,3 +237,5 @@ const totalCart = document.getElementById('total')
 const countCart = document.getElementById('counter')
 
 const message = document.querySelector('.add-message')
+
+const btnFilter = document.getElementById('btn-filter')
