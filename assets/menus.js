@@ -15,8 +15,9 @@ const openCart = () =>  {
 }
 
 const closeCart = (e) => {
-    if(e.target.id !== "cart-menu" && e.target.id !== "cart-icon"){
+    if(e.target.classList.contains('close')){
         cartIcon.classList.remove('open-cart');
         cartMenu.classList.remove('open-cart');
     }
+
 }

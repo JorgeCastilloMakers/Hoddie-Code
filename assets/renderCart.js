@@ -1,11 +1,17 @@
 const renderCart = () => {
     if (!cart.length) {
         cartProducts.innerHTML = `<p class="empty-msg">This is empty, try to add something.</p>`;
-      return;
+        resetCartBtn.classList.remove('btnChange')
+        resetCartBtn.setAttribute("disabled", "true") 
+        return;
     }
     cartProducts.innerHTML = cart.map(renderCartProduct).join("");
+    renderTotal(cart)
+    
+    resetCartBtn.removeAttribute("disabled")
+    resetCartBtn.classList.add('btnChange')
+    
 };
-
 
 const renderCartProduct = (productAdd) => {
 const { id, img, price, name, size, quantity } = productAdd;
@@ -26,4 +32,25 @@ return `
     <h2>$${price}</h2>
 </div>   
 `;
+};
+
+const resetCart = () => {
+    console.log("hola")
+    window.confirm("queres borrar el carrito?")
+
+        cart = [];
+        saveLocalStorage();
+        renderCart();
+        renderCounter()
+        renderTotal(cart)
+    
+}
+
+const cartTotal = () => {
+    return cart.reduce(
+      (acc, cur) => acc + Number(cur.price) * Number(cur.quantity),0 );
+};
+  
+const renderTotal = () => {
+    totalCart.innerHTML = `Total: $${cartTotal()}`;
 };

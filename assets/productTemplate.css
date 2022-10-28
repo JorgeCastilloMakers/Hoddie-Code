@@ -183,6 +183,10 @@
     font-weight: 700;
     cursor:pointer;
 }
+.desactivate:disabled{
+    color: #e40101;
+    cursor: none;
+}
 .add-cart-btn{
     font-size: 15px;
     font-weight: 600;

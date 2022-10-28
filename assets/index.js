@@ -126,7 +126,7 @@ const renderProductTemplate = (product) =>{
     document.getElementById('productImageBig').innerHTML = `<img class=".materialboxed" src="${imgBig}" alt="">`
     document.querySelector('.add-cart').innerHTML = `
             <div class="quantity" id="cantidad">
-            <button class="quantity-btn down" data-id="${id}">-</button>
+            <button class="quantity-btn minus down" data-id="${id}" >-</button>
             <h2 id="root">1</h2>
             <button class="quantity-btn up" data-id="${id}">+</button>
             </div>
@@ -253,21 +253,21 @@ const addUnitProductFromList = (product) => {
         : cartProduct;
     });
 };
-const templatePlusBtn = (id) => {
+const templatePlusBtn = () => {
 
     quantity= quantity + 1
     document.getElementById('root').innerText = quantity
+    const btnMinus =  document.querySelector('.minus');
+    btnMinus.removeAttribute("disabled")
     return quantity
 
   };
-const templateMinusBtn = (id) => {
-
+const templateMinusBtn = () => {
     quantity= quantity - 1
     document.getElementById('root').innerText = quantity
     if(quantity === 0){
-        document.querySelector('.down').disabled = true
-    }else if (quantity > 0){
-        document.querySelector('.down').disabled = false
+      const btnMinus =  document.querySelector('.minus');
+      btnMinus.setAttribute("disabled", "true")
     }
     return quantity
   };
@@ -282,7 +282,7 @@ const handleQuantity = (e) => {
 }; 
 
 const createCartProduct = (product) => {
-    cart = [...cart, { ...product, quantity: 1 }];
+    cart = [...cart, { ...product, quantity }];
   };
 const productData = (id, name, price, img, size, quantity) => {
     return { id, name, price, img, size, quantity };
@@ -297,16 +297,24 @@ const addCart = (e) => {
     
     product.size = changeSize()
     if (existingCartProduct(product)) {
-        
+        if (product.quantity == 0){
+            alert("no podes pa");
+            return
+        }
         addUnitProductFromTemplate(product);
         showMessage("Added a unit from this product")
       } else {
+        if (product.quantity == 0){
+            alert("no podes pa");
+            return
+        }
         createCartProduct(product);
         showMessage("Product Added to cart")
       }
     saveLocalStorage()
     renderCounter()
     renderCart();
+    renderTotal(cart)
 }
 
 const addCartFromProductsList = (e) =>{
@@ -328,6 +336,7 @@ const addCartFromProductsList = (e) =>{
         saveLocalStorage()
         renderCounter()
         renderCart();
+        renderTotal(cart)
     }else if(product.size != "null"){
         location.href = `/assets/productTemplate.html?type=${tipo}&id=${product.id}`
     }
@@ -352,6 +361,7 @@ const addCartFromHome = (e) =>{
         saveLocalStorage()
         renderCounter()
         renderCart();
+        renderTotal(cart)
     }else if(product.size != "null"){
         location.href = `/assets/productTemplate.html?type=${product.collection}&id=${product.id}`
     }
@@ -374,9 +384,10 @@ const init = () => {
     document?.addEventListener('click', closeMenu)
     cartIcon?.addEventListener('click', openCart)
     document?.addEventListener('click', closeCart)
-    document.addEventListener("DOMContentLoaded", renderCounter);
-    document.addEventListener("DOMContentLoaded", renderCartProduct);
-    document.addEventListener("DOMContentLoaded", renderCart(cart));
+    document?.addEventListener("DOMContentLoaded", renderCounter);
+
+    document?.addEventListener("DOMContentLoaded", renderTotal);
+    resetCartBtn?. addEventListener('click', resetCart)
     document?.addEventListener("DOMContentLoaded", findLatest)
     latestProducts?.addEventListener('click', addCartFromHome)
     document?.addEventListener("DOMContentLoaded", renderFilters)
@@ -388,6 +399,9 @@ const init = () => {
     productsContainer?.addEventListener('click', addCartFromProductsList)
     btnFilter?.addEventListener('click', handleFilters)
     btnFilterReset?.addEventListener('click', resetFilter)
+    document?.addEventListener("DOMContentLoaded", renderCart(cart));
+    resetCartBtn. addEventListener('click', resetCart)
+    
 }
 
 init()

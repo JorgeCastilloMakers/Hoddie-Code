@@ -235,6 +235,8 @@ const btnCloseCart = document.getElementById('close-cart')
 const cartProducts = document.getElementById('cartProducts')
 const totalCart = document.getElementById('total')
 const countCart = document.getElementById('counter')
+const resetCartBtn = document.getElementById('empty-cart')
+const payCartBtn = document.getElementById('btn-pay')
 
 const message = document.querySelector('.add-message')
 
