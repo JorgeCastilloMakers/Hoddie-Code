@@ -57,7 +57,7 @@
     align-items: center;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 30;
 }
 .light-box{
     position: fixed;
@@ -240,7 +240,8 @@
     }
     .light-box img{
         width: 80vw;
-        z-index: 50;
+        z-index: 100;
     }
+
 }
 
