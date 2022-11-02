@@ -100,7 +100,7 @@ let products = [
         imgGallery1: "/assets/img/front/hoodie-javascript-gal1.png",
         imgGallery2: "/assets/img/front/hoodie-javascript-gal2.png",
         imgGallery3: "/assets/img/front/hoodie-javascript-gal3.png",
-        imgGallery4: "/assets/img/front/hoodie-javascript-gal4.png",
+        imgGallery4: "/assets/img/front/hoodie-javascript-gall4.png",
     },{
         id: 9,
         name: "T-Shirt VUE-JS",
