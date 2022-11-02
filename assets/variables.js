@@ -229,7 +229,7 @@ let products = [
         technologie: "mongodb",
         collection: "Backend",
         size: ["small", "large", "medium", "extra-large"],
-        img: "/assets/img/back/hoddie-mongo.png",
+        img: "/assets/img/back/hoodie-mongo.png",
         imgBig: "/assets/img/back/hoodie-mongo-big.png",
         imgGallery1: "/assets/img/back/mongo-gallery1.png",
         imgGallery2: "/assets/img/back/mongo-gallery2.png",
