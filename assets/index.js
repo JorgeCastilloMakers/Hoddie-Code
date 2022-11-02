@@ -142,16 +142,16 @@ const renderProductTemplate = (product) =>{
     `
     document.querySelector('.image-product-galery').innerHTML = `
             <a href="#image2" class="open">
-                <img src="${imgGallery2.toLowerCase()}" alt="">
+                <img src="${imgGallery2}" alt="">
             </a>
             <a href="#image3" class="open">
-                <img src="${imgGallery3.toLowerCase()}" alt="">
+                <img src="${imgGallery3}" alt="">
             </a>
             <a href="#image4" class="open">
-                <img src="${imgGallery4.toLowerCase()}" alt="">
+                <img src="${imgGallery4}" alt="">
             </a>
             <a href="#image5" class="open">
-                <img src="${imgGallery1.toLowerCase()}" alt="">
+                <img src="${imgGallery1}" alt="">
             </a>    
     `
 
