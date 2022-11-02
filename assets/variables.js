@@ -230,7 +230,7 @@ let products = [
         collection: "Backend",
         size: ["small", "large", "medium", "extra-large"],
         img: "/assets/img/back/hoodie-mongo.png",
-        imgBig: "/assets/img/back/hoodie-mongo-big.png",
+        imgBig: "/assets/img/back/hoddie-mongo-big.png",
         imgGallery1: "/assets/img/back/mongo-gallery1.png",
         imgGallery2: "/assets/img/back/mongo-gallery2.png",
         imgGallery3: "/assets/img/back/mongo-gallery3.png",
