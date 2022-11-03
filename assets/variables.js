@@ -274,6 +274,12 @@ const breadCrumbs = document.getElementById('collectionFilter');
 const filtros = document.getElementById('filters');
 
 const template = document.getElementById('template');
+const selectSize = document.getElementById('selectSize')
+const option1 = document.getElementById('option1')
+const option2 = document.getElementById('option2')
+const option3 = document.getElementById('option3')
+const option4 = document.getElementById('option4')
+const option5 = document.getElementById('option5')
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 

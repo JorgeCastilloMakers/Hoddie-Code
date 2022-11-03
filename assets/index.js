@@ -2,78 +2,6 @@ const saveLocalStorage = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
   };
 
-const renderFilters = () => {
-    if (tipo === "Backend"){
-        filters.innerHTML = `
-        <label for="category">Category</label>
-        <select name="Category" id="category">
-            <option value="0"></option>
-            <option value="hoddie">Hoddie</option>
-            <option value="sweatshirt">Sweatshirt</option>
-            <option value="t-shirt">T-Shirt</option>
-            <option value="snapback">Snapback</option>
-        </select>
-        <label for="size">Size</label>
-        <select name="size" id="size">
-        <option value="0"></option>
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-        <option value="extra-large">Extra Large</option>
-        <option value="extra-extra-large">Extra Extra Large</option>
-        <option value="Only size">Only Size</option>
-        </select>
-        <label for="technologies">Technologies</label>
-        <select name="technologies" id="technologies">
-            <option value="0"></option>
-            <option value="php">PHP</option>
-            <option value="mysql">MYSQL</option>
-            <option value="kotlin">KOTLIN</option>
-            <option value="c#">C#</option>
-            <option value="ruby">RUBY</option>
-            <option value="javascript">JAVASCRIPT</option>
-            <option value="c++">C++</option>
-            <option value="python">PYTHON</option>
-            <option value="mongodb">MONGODB</option>
-        </select>
-        `
-        return
-    }else if (tipo === "Frontend"){
-        filters.innerHTML = `
-        <label for="category">Category</label>
-        <select name="Category" id="category">
-            <option value="0"></option>
-            <option value="hoddie">Hoddie</option>
-            <option value="sweatshirt">Sweatshirt</option>
-            <option value="t-shirt">T-Shirt</option>
-            <option value="snapback">Snapback</option>
-        </select>
-        <label for="size">Size</label>
-        <select name="size" id="size">
-            <option value="0"></option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-            <option value="extra-large">Extra Large</option>
-            <option value="extra-extra-large">Extra Extra Large</option>
-            <option value="Only size">Only Size</option>
-        </select>
-        <label for="technologies">Technologies</label>
-        <select name="technologies" id="technologies">
-            <option value="0"></option>
-            <option value="html">HTML</option>
-            <option value="css3">CSS3</option>
-            <option value="react">REACT</option>
-            <option value="javascript">JAVASCRIPT</option>
-            <option value="vue-js">VUE JS</option>
-            <option value="unity">UNITY</option>
-            <option value="sass">SASS</option>
-            <option value="typescript">TYPESCRIPT</option>
-            <option value="gatsby">GATSBY</option>
-        </select>
-        `
-    }
-}
 
 const renderCardProducts = (lista) => {
 
@@ -98,13 +26,13 @@ const renderCardProducts = (lista) => {
         `
 }
 
-const filterType = () => {
-    const productsList = products.filter(
-        (product) => product.collection.toUpperCase() === tipo.toUpperCase()
-      );
-    productsContainer.innerHTML = "";
-    productsList.map(renderCardProducts).join("");
-}
+// const filterType = () => {
+//     const productsList = products.filter(
+//         (product) => product.collection.toUpperCase() === tipo.toUpperCase()
+//       );
+//     productsContainer.innerHTML = "";
+//     productsList.map(renderCardProducts).join("");
+// }
 
 let quantity = 1;
 
@@ -115,123 +43,134 @@ const closeGallery = () =>{
 const openGallery = () =>{
     lightBoxContainer.style.display = "block"
 }
-const renderProductTemplate = (product) =>{
-    lightBoxContainer.style.display = "none"
-    renderSize(product[0].size)
-    const { id, name, category, price, technologie, img, imgBig, imgGallery1, imgGallery2, imgGallery3, imgGallery4 } = product[0]
-    breadCrumbs.innerHTML = `<a href="/assets/products.html?type=${tipo}">${tipo}</a>/${name}`
-    document.getElementById('productName').textContent = `${name}`
-    document.getElementById('productCategory').textContent = `Hoodie Code ${category}`
-    document.getElementById('productPrice').textContent = `$${price}`
-    document.getElementById('productImageBig').innerHTML = `<img class=".materialboxed" src="${imgBig}" alt="">`
-    document.querySelector('.add-cart').innerHTML = `
-            <div class="quantity" id="cantidad">
-            <button class="quantity-btn minus down" data-id="${id}" >-</button>
-            <h2 id="root">1</h2>
-            <button class="quantity-btn up" data-id="${id}">+</button>
-            </div>
-            <button class="add-cart-btn" data-id="${id}"
-            data-name="${name}"
-            data-price="${price}"
-            data-img="${img}"
-            data-technologie="${technologie}"
-            data-quantity="${quantity}">
-            <i class="fa-solid fa-cart-shopping"></i>
-            Add to cart
-            </button>
-    `
-    document.querySelector('.image-product-galery').innerHTML = `
-            <a href="#image2" class="open">
-                <img src="${imgGallery2}" alt="">
-            </a>
-            <a href="#image3" class="open">
-                <img src="${imgGallery3}" alt="">
-            </a>
-            <a href="#image4" class="open">
-                <img src="${imgGallery4}" alt="">
-            </a>
-            <a href="#image5" class="open">
-                <img src="${imgGallery1}" alt="">
-            </a>    
-    `
+// const renderProductTemplate = (product) =>{
+//     lightBoxContainer.style.display = "none"
+//     renderSize(product[0].size)
+//     const { id, name, category, price, technologie, img, imgBig, imgGallery1, imgGallery2, imgGallery3, imgGallery4 } = product[0]
+//     breadCrumbs.innerHTML = `<a href="/assets/products.html?type=${tipo}">${tipo}</a>/${name}`
+//     document.getElementById('productName').textContent = `${name}`
+//     document.getElementById('productCategory').textContent = `Hoodie Code ${category}`
+//     document.getElementById('productPrice').textContent = `$${price}`
+//     document.getElementById('productImageBig').innerHTML = `<img class=".materialboxed" src="${imgBig}" alt="">`
+//     document.querySelector('.add-cart').innerHTML = `
+//             <div class="quantity" id="cantidad">
+//             <button class="quantity-btn minus down" data-id="${id}" >-</button>
+//             <h2 id="root">1</h2>
+//             <button class="quantity-btn up" data-id="${id}">+</button>
+//             </div>
+//             <button class="add-cart-btn" data-id="${id}"
+//             data-name="${name}"
+//             data-price="${price}"
+//             data-img="${img}"
+//             data-technologie="${technologie}"
+//             data-quantity="${quantity}">
+//             <i class="fa-solid fa-cart-shopping"></i>
+//             Add to cart
+//             </button>
+//     `
+//     document.querySelector('.image-product-galery').innerHTML = `
+//             <a href="#image2" class="open">
+//                 <img src="${imgGallery2}" alt="">
+//             </a>
+//             <a href="#image3" class="open">
+//                 <img src="${imgGallery3}" alt="">
+//             </a>
+//             <a href="#image4" class="open">
+//                 <img src="${imgGallery4}" alt="">
+//             </a>
+//             <a href="#image5" class="open">
+//                 <img src="${imgGallery1}" alt="">
+//             </a>    
+//     `
 
-    lightBoxContainer.innerHTML = `
-    <article class="light-box" id="image1">
-        <a href="#image5" class="next"><i class="fa-solid fa-arrow-left"></i></a>
-        <img src="${imgBig}" alt="">
-        <a href="#image2" class="next"><i class="fa-solid fa-arrow-right"></i></a>
-        <a class="close"><i class="fa-solid fa-xmark"></i></a>
-    </article>
-    <article class="light-box" id="image2">
-        <a href="#image1" class="next"><i class="fa-solid fa-arrow-left"></i></a>
-        <img src="${imgGallery2}" alt="">
-        <a href="#image3" class="next"><i class="fa-solid fa-arrow-right"></i></a>
-        <a class="close"><i class="fa-solid fa-xmark"></i></a>
-    </article>
-    <article class="light-box" id="image3">
-        <a href="#image2" class="next"><i class="fa-solid fa-arrow-left"></i></a>
-        <img src="${imgGallery3}" alt="">
-        <a href="#image4" class="next"><i class="fa-solid fa-arrow-right"></i></a>
-        <a class="close"><i class="fa-solid fa-xmark"></i></a>
-    </article>
-    <article class="light-box" id="image4">
-        <a href="#image3" class="next"><i class="fa-solid fa-arrow-left"></i></a>
-        <img src="${imgGallery4}" alt="">
-        <a href="#image5" class="next"><i class="fa-solid fa-arrow-right"></i></a>
-        <a class="close"><i class="fa-solid fa-xmark"></i></a>
-    </article>
-    <article class="light-box" id="image5">
-        <a href="#image4" class="next"><i class="fa-solid fa-arrow-left"></i></a>
-        <img src="${imgGallery1}" alt="">
-        <a href="#image1" class="next"><i class="fa-solid fa-arrow-right"></i></a>
-        <a class="close"><i class="fa-solid fa-xmark"></i></a>
-    </article>
-    `
-    closeBtnGallery = document.querySelectorAll('.close')
-    openBtnGallery = document.querySelectorAll('.open')
-    quantityContainer = document.getElementById('cantidad')
-    quantityContainer.addEventListener('click', handleQuantity)
-    arrClose = [closeBtnGallery];
-    arrClose[0].forEach(e => {
-        e.addEventListener('click', closeGallery)
-    });
-    arrOpen = [openBtnGallery];
-    arrOpen[0].forEach(e => {
-        e.addEventListener('click', openGallery)
-    });
+//     lightBoxContainer.innerHTML = `
+//     <article class="light-box" id="image1">
+//         <a href="#image5" class="next"><i class="fa-solid fa-arrow-left"></i></a>
+//         <img src="${imgBig}" alt="">
+//         <a href="#image2" class="next"><i class="fa-solid fa-arrow-right"></i></a>
+//         <a class="close"><i class="fa-solid fa-xmark"></i></a>
+//     </article>
+//     <article class="light-box" id="image2">
+//         <a href="#image1" class="next"><i class="fa-solid fa-arrow-left"></i></a>
+//         <img src="${imgGallery2}" alt="">
+//         <a href="#image3" class="next"><i class="fa-solid fa-arrow-right"></i></a>
+//         <a class="close"><i class="fa-solid fa-xmark"></i></a>
+//     </article>
+//     <article class="light-box" id="image3">
+//         <a href="#image2" class="next"><i class="fa-solid fa-arrow-left"></i></a>
+//         <img src="${imgGallery3}" alt="">
+//         <a href="#image4" class="next"><i class="fa-solid fa-arrow-right"></i></a>
+//         <a class="close"><i class="fa-solid fa-xmark"></i></a>
+//     </article>
+//     <article class="light-box" id="image4">
+//         <a href="#image3" class="next"><i class="fa-solid fa-arrow-left"></i></a>
+//         <img src="${imgGallery4}" alt="">
+//         <a href="#image5" class="next"><i class="fa-solid fa-arrow-right"></i></a>
+//         <a class="close"><i class="fa-solid fa-xmark"></i></a>
+//     </article>
+//     <article class="light-box" id="image5">
+//         <a href="#image4" class="next"><i class="fa-solid fa-arrow-left"></i></a>
+//         <img src="${imgGallery1}" alt="">
+//         <a href="#image1" class="next"><i class="fa-solid fa-arrow-right"></i></a>
+//         <a class="close"><i class="fa-solid fa-xmark"></i></a>
+//     </article>
+//     `
+//     closeBtnGallery = document.querySelectorAll('.close')
+//     openBtnGallery = document.querySelectorAll('.open')
+//     quantityContainer = document.getElementById('cantidad')
+//     quantityContainer.addEventListener('click', handleQuantity)
+//     arrClose = [closeBtnGallery];
+//     arrClose[0].forEach(e => {
+//         e.addEventListener('click', closeGallery)
+//     });
+//     arrOpen = [openBtnGallery];
+//     arrOpen[0].forEach(e => {
+//         e.addEventListener('click', openGallery)
+//     });
 
-}
+// }
 
-const renderSize = (sizeArr) => {
-    if (sizeArr === "Only size"){
-        document.getElementById('option1').textContent = `Only Size`
-        document.getElementById('option1').value = `${sizeArr}`
-        return
-    }
-    const [size1, size2, size3, size4, size5] = sizeArr;
-    document.getElementById('option1').textContent = `${size1}`
-    document.getElementById('option2').textContent = `${size2}`
-    document.getElementById('option3').textContent = `${size3}`
-    document.getElementById('option4').textContent = `${size4}`
-    document.getElementById('option5').textContent = `${!size5 ? "": size5}`
-    document.getElementById('option1').value = `${size1}`
-    document.getElementById('option2').value = `${size2}`
-    document.getElementById('option3').value = `${size3}`
-    document.getElementById('option4').value = `${size4}`
-    document.getElementById('option5').value = `${!size5 ? "": size5}`
+// const renderSize = (sizeArr) => {
+//     if (sizeArr === "Only size"){
 
-}
+//         option1.textContent = `Only Size`
+//         option1.value = `${sizeArr}`
+//         option2.remove();
+//         option3.remove();
+//         option4.remove();
+//         option5.remove();
+        
+//         return
+//     }
+//     const [size1, size2, size3, size4, size5] = sizeArr;
+//     console.log(sizeArr)
+
+//     option1.textContent = `${size1}`
+//     option2.textContent = `${size2}`
+//     option3.textContent = `${size3}`
+//     option4.textContent = `${size4}`
+//     option5.textContent = `${!size5 ? "": size5}`
+//     option1.value = `${!size1 ? option1.remove(): size1}`
+//     option2.value = `${!size2 ? option2.remove(): size2}`
+//     option3.value = `${!size3 ? option3.remove(): size3}`
+//     option4.value = `${!size4 ? option4.remove(): size4}`
+//     option5.value = `${!size5 ? option5.remove(): size5}`
+
+// }
+// const changeSize = () => {
+//     let size = selectSize.options[selectSize.options.selectedIndex].value
+//     return size
+
+// }
+// const filterTemplate = () => {
+//     let productFilter = products.filter((producto) => producto.id === Number(idProduct));
+//     renderProductTemplate(productFilter)
+// }
 const changeSize = () => {
-    let selectSize = document.getElementById('selectSize')
     let size = selectSize.options[selectSize.options.selectedIndex].value
     return size
 
 }
-const filterTemplate = () => {
-    let productFilter = products.filter((producto) => producto.id === Number(idProduct));
-    renderProductTemplate(productFilter)
-}
-
 const existingCartProduct = (product) => {
 
     let result = cart.find((item) => item.id === product.id && item.size === product.size);
@@ -253,24 +192,24 @@ const addUnitProductFromList = (product) => {
         : cartProduct;
     });
 };
-const templatePlusBtn = () => {
+// const templatePlusBtn = () => {
 
-    quantity= quantity + 1
-    document.getElementById('root').innerText = quantity
-    const btnMinus =  document.querySelector('.minus');
-    btnMinus.removeAttribute("disabled")
-    return quantity
+//     quantity= quantity + 1
+//     document.getElementById('root').innerText = quantity
+//     const btnMinus =  document.querySelector('.minus');
+//     btnMinus.removeAttribute("disabled")
+//     return quantity
 
-  };
-const templateMinusBtn = () => {
-    quantity= quantity - 1
-    document.getElementById('root').innerText = quantity
-    if(quantity === 0){
-      const btnMinus =  document.querySelector('.minus');
-      btnMinus.setAttribute("disabled", "true")
-    }
-    return quantity
-  };
+//   };
+// const templateMinusBtn = () => {
+//     quantity= quantity - 1
+//     document.getElementById('root').innerText = quantity
+//     if(quantity === 0){
+//       const btnMinus =  document.querySelector('.minus');
+//       btnMinus.setAttribute("disabled", "true")
+//     }
+//     return quantity
+//   };
 
 const handleQuantity = (e) => {
     if (e.target.classList.contains("down")) {
@@ -385,20 +324,23 @@ const init = () => {
     cartIcon?.addEventListener('click', openCart)
     document?.addEventListener('click', closeCart)
     document?.addEventListener("DOMContentLoaded", renderCounter);
-
     document?.addEventListener("DOMContentLoaded", renderTotal);
     resetCartBtn?. addEventListener('click', resetCart)
+
     document?.addEventListener("DOMContentLoaded", findLatest)
     latestProducts?.addEventListener('click', addCartFromHome)
+
     document?.addEventListener("DOMContentLoaded", renderFilters)
     document?.addEventListener("DOMContentLoaded", filterType)
     breadCrumbs.innerText = `${tipo}${!idProduct? "": "/Product-"+idProduct}`
     document?.addEventListener("DOMContentLoaded", filterTemplate)
-    btnContainer?.addEventListener('click', addCart)
-    document?.addEventListener('DOMContentLoaded', changeSize)
-    productsContainer?.addEventListener('click', addCartFromProductsList)
     btnFilter?.addEventListener('click', handleFilters)
     btnFilterReset?.addEventListener('click', resetFilter)
+    btnContainer?.addEventListener('click', addCart)
+
+    // document?.addEventListener('DOMContentLoaded', changeSize)
+    productsContainer?.addEventListener('click', addCartFromProductsList)
+
     document?.addEventListener("DOMContentLoaded", renderCart(cart));
     resetCartBtn. addEventListener('click', resetCart)
     

@@ -1,7 +1,9 @@
 
 const findLatest = () => {
     let lastThreeProducs = products.slice(products.length-3)
-
+    if(!latestProducts){
+        return
+    }
     latestProducts.innerHTML = "";
     lastThreeProducs.map(renderLatestProducts).join("");
 }
