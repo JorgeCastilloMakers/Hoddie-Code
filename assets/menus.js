@@ -11,13 +11,14 @@ const closeMenu = (e) => {
 }
 const openCart = () =>  {
     cartIcon.classList.toggle('open-cart');
-    cartMenu.classList.toggle('open-cart');
+    cartMenu.classList.toggle('open-cart-cart');
+
 }
 
 const closeCart = (e) => {
     if(e.target.classList.contains('close')){
         cartIcon.classList.remove('open-cart');
-        cartMenu.classList.remove('open-cart');
+        cartMenu.classList.remove('open-cart-cart');
     }
 
 }

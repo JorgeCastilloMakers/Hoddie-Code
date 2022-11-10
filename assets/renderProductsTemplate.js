@@ -98,7 +98,6 @@ const renderSize = (sizeArr) => {
         return
     }
     const [size1, size2, size3, size4, size5] = sizeArr;
-    console.log(sizeArr)
 
     option1.textContent = `${size1}`
     option2.textContent = `${size2}`

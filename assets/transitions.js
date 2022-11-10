@@ -16,3 +16,4 @@ window.sr = ScrollReveal();
         origin: "bottom",
         distance: "-100px"
     });
+

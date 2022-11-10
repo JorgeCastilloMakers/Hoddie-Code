@@ -9,10 +9,10 @@ let products = [
         size: ["small", "large", "medium"],
         img: "/assets/img/front/hoddie-html.png",
         imgBig: "/assets/img/front/hoodie-html-big.png",
-        imgGallery1: "/assets/img/front/hoodie-html-gallery1.png",
-        imgGallery2: "/assets/img/front/hoodie-html-gallery2.png",
-        imgGallery3: "/assets/img/front/hoodie-html-gallery3.png",
-        imgGallery4: "/assets/img/front/hoodie-html-gallery4.png",
+        imgGallery1: "/assets/img/front/hoodie-html-gall1.png",
+        imgGallery2: "/assets/img/front/hoodie-html-gall2.png",
+        imgGallery3: "/assets/img/front/hoodie-html-gall3.png",
+        imgGallery4: "/assets/img/front/hoodie-html-gall4.png",
     }, {
         id: 2,
         name: "T-Shirt CSS3",
@@ -290,6 +290,7 @@ const lightBoxContainer = document.querySelector('.lightBox_container')
 const icon = document.getElementById('icon');
 const menu = document.getElementById('menu');
 
+//CART Menu
 const cartIcon = document.getElementById('cart-icon');
 const cartMenu = document.getElementById('cart-menu');
 const btnCloseCart = document.getElementById('close-cart')
@@ -299,7 +300,30 @@ const countCart = document.getElementById('counter')
 const resetCartBtn = document.getElementById('empty-cart')
 const payCartBtn = document.getElementById('btn-pay')
 
+
 const message = document.querySelector('.add-message')
 
 const btnFilter = document.getElementById('btn-filter')
 const btnFilterReset = document.getElementById('btn-filter-reset')
+
+//Register Form
+
+const formRegister = document.getElementById('register-form');
+const nameUser = document.getElementById('nameUser');
+const emailUser = document.getElementById('emailUser');
+const addressUser = document.getElementById('addressUser');
+const passwordUser = document.getElementById('passwordUser');
+const registerError = document.getElementById('register-error');
+const nameError = document.getElementById('nameError')
+const emailError = document.getElementById('emailError')
+const passError = document.getElementById('passError')
+//Login Form
+
+const formLogin = document.getElementById('login-form');
+const emailInput = document.getElementById('emailUser');
+const passwordInput = document.getElementById('passwordUser');
+const loginError = document.getElementById('login-error');
+
+//Avatar 
+const avatar = document.getElementById('avatarLogo');
+const nameAcount = document.getElementById('nameAcount');
