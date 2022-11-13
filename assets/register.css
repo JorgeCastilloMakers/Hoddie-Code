@@ -1,6 +1,4 @@
-root{
-    --yellow: #FFDE59;
-}
+
 .register__container {
     width: 100%;
     height: 100%;
@@ -185,7 +183,7 @@ root{
 }
 .form_register_container > form > input{
     border: none;
-    background: #e5ff525e;
+    background: #f7f2515e;
     width: 100%;
     height: 44px;
     border-radius: 5px;
@@ -202,12 +200,53 @@ root{
     outline: none;
 }
 
-@media (max-width: 667px){
-    .register__container {
+.form_register_container > form > p{
+    text-align: center;
+}
+.form_register_container > form > p > a{
+    text-decoration: none;
+    color: #FFDE59;
+    background-color: black;
+    font-style: italic;
+}
+@media (max-width: 867px){
+    .form_register_container{
+        top: 20%;
+        box-shadow: 3px 7px 14px -7px rgb(0 0 0 / 75%);
+    }
+    .nav{
         display: none;
     }
     .register__container > div > p{
         display: none;
     }
-    
+}
+@media (max-width: 667px){
+    .register__container{
+        background-color: #FCDE03;
+        width: 100%;
+        height: 100%;
+        padding-bottom: 10%;
+
+    }
+    .form_register_container > .titles > p , h3 {
+        display: none;
+    }
+    .form_register_container{
+        width: 90%;
+        height: 100%;
+        left: 5%;
+        margin-top: 10%;
+        top: 20%;
+        box-shadow: unset;
+        background-color: #fafafa;
+        flex-direction: column;
+    }
+    .form_register_container > .titles{
+        width: 100%;
+    }
+    .form_register_container > form{
+        width: 100%;
+    }
+
 }
