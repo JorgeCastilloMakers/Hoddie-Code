@@ -31,9 +31,9 @@
         <div class="menu-label">
          <i class="fa-solid fa-bars-staggered" id="icon"></i>   
         </div>
-        <i class="fa-solid fa-basket-shopping" id="cart-icon"><span id="counter">0</span></i>
+        <i class="fa-solid fa-bag-shopping" id="cart-icon"><span id="counter">0</span></i>
         <div class="avatar_container">
-            <a href="" id="avatarLogo"><img src="/assets/img/avatar.jpg" alt=""></a>
+            <a href="" id="avatarLogo"><i class="fa-solid fa-user"></i></a>
             <p id="nameAcount">Login</p>
         </div>
     </div>
@@ -56,7 +56,37 @@
         </div>
         <h3 id="total"></h3>
         <button class="empty-cart" id="empty-cart">Empty Cart</button>
-        <button class="btn-pay" id="btn-pay">Pay Order</button>
+        <button class="btn-pay" id="open-checkout">Checkout</button>
+    </div>
+    <div id="checkout-modal">
+        <h2>Checkout</h2>
+        <div class="billing-data">
+            <form id="checkout-form" class="checkout-form">
+                <h3>Billing Data</h3>
+                <label for="">Name</label>
+                <input type="text" id="nameBilling">
+                <label for="">Email</label>
+                <input type="email" id="emailBilling">
+                <label for="">Address</label>
+                <input type="text" id="addressBilling">
+            </form>
+            <div class="cart-order" id="order">
+
+            </div>
+            
+        </div>
+        <h4 id="totalBill">Total: $500</h4>
+        <div class="pay-method-container">
+            <label for="">Choose your pay method</label>
+            <select name="pay-method" id="pay-method">
+                <option value="Cash">Cash</option>
+                <option value="Credit Card">Credit Card</option>
+            </select>
+        </div>
+        <div class="btn-container">
+            <button id="close-checkout" class="btn-pay btn-cancel">Cancel</button>
+            <button class="btn-pay" id="btn-pay">Pay Order</button>
+        </div>
     </div>
 </header>
 <div class="register__container">
@@ -85,7 +115,7 @@
 </div>
 <div class="login_register_container">  
     <div class="titles">
-        <h2>Login<div></div></h2>
+        <h2>Log<span>in</span></h2>
         <p>Hey! Welcome to HoddieCode Store</p>
         
     </div>
@@ -97,7 +127,7 @@
         <input type="password" id="passwordUser">
         <button type="submit" id="btn-register">Login</button>
     </form>
-    <p>You don't have an acount, please <a href="./register.html">register</a>.</p>
+    <p>You don't have an acount?, please <a href="./register.html">register</a>.</p>
     <h3><span><</span>HoodieCode<span>/></span></h3>
 </div>
 
@@ -111,16 +141,18 @@
     <div class="logo_icons_container">
         <h2><span><</span>HoodieCode<span>/></span></h2>
         <div class="icons">
-            <i class="fa-brands fa-square-facebook"></i>
             <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-whatsapp"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-pinterest"></i>
         </div>
     </div>
     
 </footer>
+
 <script src="/assets/variables.js"></script>
 <script src="/assets/login.js"></script>
 <script src="/assets/menus.js"></script>
 <script src="/assets/renderCart.js"></script>
+<script src="/assets/checkout.js"></script>
 <script src="/assets/index.js"></script>
 </body>

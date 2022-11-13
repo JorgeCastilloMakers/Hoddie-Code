@@ -1,0 +1,149 @@
+root{
+    --yellow: #FFDE59;
+}
+.main-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10%;
+}
+
+.breadcrumbs_container{
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    padding-left: 5%;
+    gap: 5px;
+}
+.breadcrumbs_container > a{
+    text-decoration: none;
+    color: #e6cb05;
+    font-size: 18px;
+    font-weight: 400;
+}
+.breadcrumbs_container > p{
+    margin: 0;
+    color: #7D7D7D;
+    font-size: 18px;
+    font-weight: 300;
+}
+.breadcrumbs_container > p > a{
+    text-decoration: none;
+    color: #e6cb05;
+    font-size: 18px;
+    font-weight: 400;
+}
+.breadcrumbs_container > a:hover{
+    color: #e6cb05;
+}
+.filters-products{
+    width: 90%;
+    height: 100%;
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.filters_container{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    gap: 20px;
+}
+.filters_container > h3{
+    font-size: 18px;
+    font-weight: 400;
+}
+.filters_container > .filters{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.filters_container > .filters > label{
+    font-size: 18px;
+    font-weight: 300;
+    color: #7D7D7D;
+}
+.filters_container > .filters > select{
+    background-color: #FDFBFB;
+    border: 1px solid var(--yellow);
+    border-radius: 5px;
+    color: #7D7D7D;
+}
+.filters_container > .filters > select:focus{
+    outline: none;
+    border: 1px solid var(--yellow);
+}
+.filters_container > .filters > select > option{
+    background-color: #FDFBFB;
+    font-size: 15px;
+
+}
+.filters_container > .btn-filter-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filters_container > .btn-filter-container > button{
+    border: none;
+    background: var(--yellow);
+    font-size: 20px;
+    font-weight: 400;
+    padding: 1% 8%;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+.filters_container > .btn-filter-container > button:hover{
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    transform: translateY(-1px);
+}
+
+.products_container{
+    width: 80%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+@media (max-width: 867px){
+    .main-container{
+        margin-top: 20%;
+        flex-direction: column;
+    }
+    .filters-products{
+        flex-direction: column;
+    }
+    .filters_container{
+        width: 100%;
+    }
+    .products_container{
+        width: 100%;
+        justify-content: center;
+    }
+    .breadcrumbs_container{
+        height: 80px;
+    }
+    .breadcrumbs_container > a{
+        font-size: 20px;
+    }
+    .breadcrumbs_container > p{
+        font-size: 20px;
+    }
+    .breadcrumbs_container > p > a{
+        font-size: 20px;
+    }
+}

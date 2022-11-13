@@ -21,12 +21,13 @@ const handleLocation = (e) => {
 
     }else if(!localUsersOn){
       location.href = './assets/login.html';
-    }else{
-      window.confirm("do you want log out?")
+    }else if(window.confirm("do you want log out?")){
       localStorage.removeItem("userOn");
       handleAvatar()
       var urlPrev = window.location.pathname;
       location.href = `${urlPrev}`;
+    }else{
+      return
     }
 };
 
@@ -34,7 +35,6 @@ const handleAvatar = () =>{
   if(!localUsersOn){
     nameAcount.innerText = 'Login';
   }else{
-    console.log(usersLogOn)
     nameAcount.innerText = `Hi, ${usersLogOn.name}`;
   }
 };
@@ -85,7 +85,9 @@ const existingCartProduct = (product) => {
     }
 };
 const addUnitProductFromTemplate = (product) => {
+  console.log(product)
     cart = cart.map((cartProduct) => {
+      console.log(cartProduct)
       return cartProduct.id === product.id && cartProduct.size === product.size
         ? { ...cartProduct, quantity: Number(cartProduct.quantity) + Number(document.getElementById('root').textContent) }
         : cartProduct;
@@ -174,9 +176,7 @@ const addCartFromHome = (e) =>{
     
     let { id, name, price, img, size, quantity, collection} = e.target.dataset;
     let product = productData(id, name, price, img, size, quantity, collection);
-    console.log(e.target.dataset.size)
     if (product.size === "Only size"){
-        console.log("ESTOY ACA")
         if (existingCartProduct(product)) {
         
             addUnitProductFromList(product);

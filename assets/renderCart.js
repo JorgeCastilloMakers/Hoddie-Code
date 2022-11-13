@@ -28,14 +28,13 @@ return `
             <img src="/assets/img/caret-down-fill.svg" alt="" class="down" data-id=${id} data-size=${size}>
         </div>
     </div>
-    <h3>${name}<span>Size: ${size === "null" ? "Only Size" : size}</span></h3>
+    <h3>${name}<span>Size: ${size}</span></h3>
     <h2>$${price}</h2>
 </div>   
 `;
 };
 
 const resetCart = () => {
-    console.log("hola")
     window.confirm("queres borrar el carrito?")
 
         cart = [];
@@ -56,12 +55,16 @@ const renderTotal = () => {
 };
 
 const removeProductFromCart = (existingProduct) => {
-    cart = cart.filter(product => product.id !== existingProduct.id && product.size !== existingProduct.size);
-    console.log(cart)
+    cart = cart.filter(product => {
+        return product.id !== existingProduct.id || 
+            (product.id === existingProduct.id && product.size !== existingProduct.size)
+        })
+
     saveLocalStorage()
     renderCounter()
     renderCart();
     renderTotal(cart)
+    renderOrder()
 }
 
 const subtractProductUnit = (existingProduct) => {
@@ -74,11 +77,22 @@ const subtractProductUnit = (existingProduct) => {
     renderCart();
     renderTotal(cart)
 }
-
+const addUnitProductFromCart = (product) => {
+      cart = cart.map((cartProduct) => {
+        return cartProduct.id === product.id && cartProduct.size === product.size
+          ? { ...cartProduct, quantity: Number(cartProduct.quantity) + 1 }
+          : cartProduct;
+      });
+  };
 const handleUpBtn = (id, size) => {
+    
+    if(size === "Only"){
+        size = "Only size"
+    }
+    console.log(size)
     const existingCartProduct = cart.find(item => item.id === id && item.size === size);
     
-    addUnitProductFromTemplate(existingCartProduct);
+    addUnitProductFromCart(existingCartProduct);
     saveLocalStorage()
     renderCounter()
     renderCart();
@@ -86,6 +100,9 @@ const handleUpBtn = (id, size) => {
 }
 
 const handleDownBtn = (id, size) => {
+    if(size === "Only"){
+        size = "Only size"
+    }
     const existingCartProduct = cart.find(item => item.id === id && item.size === size);
     if (existingCartProduct.quantity === 1){
         if(window.confirm("Do you want to remove the product from the cart?")){
@@ -99,8 +116,20 @@ const handleDownBtn = (id, size) => {
 const handleQuantityCart = (e) => {
     if (e.target.classList.contains("down")) {
       handleDownBtn(e.target.dataset.id, e.target.dataset.size);
+      console.log(e.target.dataset.id, e.target.dataset.size)
     } else if (e.target.classList.contains("up")) {
         handleUpBtn(e.target.dataset.id, e.target.dataset.size);
+        console.log(e.target.dataset.id, e.target.dataset.size)
     }
 
 }; 
+
+const openCheckout = document.getElementById('open-checkout')
+
+const openCheckoutModal = () => {
+    checkoutModal.style.display = "flex";
+    cartIcon.classList.remove('open-cart');
+    cartMenu.classList.remove('open-cart-cart');
+    renderOrder()
+}
+openCheckout.addEventListener('click', openCheckoutModal)

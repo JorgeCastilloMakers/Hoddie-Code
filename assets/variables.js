@@ -298,7 +298,7 @@ const cartProducts = document.getElementById('cartProducts')
 const totalCart = document.getElementById('total')
 const countCart = document.getElementById('counter')
 const resetCartBtn = document.getElementById('empty-cart')
-const payCartBtn = document.getElementById('btn-pay')
+// const openCheckout = document.getElementById('open-checkout')
 
 
 const message = document.querySelector('.add-message')
@@ -307,7 +307,6 @@ const btnFilter = document.getElementById('btn-filter')
 const btnFilterReset = document.getElementById('btn-filter-reset')
 
 //Register Form
-
 const formRegister = document.getElementById('register-form');
 const nameUser = document.getElementById('nameUser');
 const emailUser = document.getElementById('emailUser');
@@ -317,8 +316,8 @@ const registerError = document.getElementById('register-error');
 const nameError = document.getElementById('nameError')
 const emailError = document.getElementById('emailError')
 const passError = document.getElementById('passError')
-//Login Form
 
+//Login Form
 const formLogin = document.getElementById('login-form');
 const emailInput = document.getElementById('emailUser');
 const passwordInput = document.getElementById('passwordUser');
@@ -327,3 +326,7 @@ const loginError = document.getElementById('login-error');
 //Avatar 
 const avatar = document.getElementById('avatarLogo');
 const nameAcount = document.getElementById('nameAcount');
+
+//Checkout
+const checkoutModal = document.getElementById('checkout-modal');
+

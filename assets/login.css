@@ -1,3 +1,7 @@
+root{
+    --yellow: #FFDE59;
+}
+
 .login_register_container{
     width: 80vw;
     height: 90%;
@@ -5,7 +9,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 35%;
+    top: 25%;
     left: 10%;
     background-color: #fafafad3;
     box-shadow: 3px 7px 14px -7px rgba(0,0,0,0.75);
@@ -25,15 +29,17 @@
 
 .login_register_container > .titles > h2{
     padding-left: 2%;
-    font-size: 35px;
-    font-weight: 800;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: -5px;
+    font-size: 45px;
     justify-self: flex-start;
 }
-.login_register_container > .titles > h2 > div{
-    width: 40px;
-    height: 5px;
-    font-size: 25px;
-    background-color: #FCDE03;
+.login_register_container > .titles > h2 > span{
+    font-size: 45px;
+    padding-left: 4px;
+    letter-spacing: 1px;
+    color: var(--yellow);
 }
 
 .login_register_container > .titles > p{
@@ -61,7 +67,7 @@
     align-self: flex-end;
 }
 .login_register_container > .titles > h3 > span{
-    color: #FCDE03;;
+    color: var(--yellow);
 }
 .login_register_container  > h3{
     padding-right: 5%;
@@ -70,7 +76,7 @@
     align-self: flex-end;
 }
 .login_register_container  > h3 > span{
-    color: #FCDE03;;
+    color: var(--yellow);
 }
 
 .login_register_container > form > button{
@@ -78,7 +84,7 @@
     position: relative;
     right: 0%;
     border: none;
-    background: #FCDE03;
+    background: var(--yellow);
     font-size: 20px;
     font-weight: 500;
     padding: 1% 8%;
@@ -107,4 +113,54 @@
 }
 .login_register_container > form > textarea:focus{
     outline: none;
+}
+
+.login_register_container > p > a{
+    text-decoration: none;
+    color: var(--yellow);
+    background-color: black;
+    font-style: italic;
+}
+
+#login-error{
+    color: red;
+    text-align: center;
+}
+@media (max-width: 667px){
+    .login_register_container{
+        width: 100vw;
+        height: 100vh;
+        top: 30%;
+        left: 0%;position: relative;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        box-shadow: unset;
+        gap: 0;
+        overflow: hidden;
+    }
+    .login_register_container > form{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        gap: 10px;
+        background-color: #fafafa00;
+    }
+    .login_register_container > .titles{
+        height: unset;
+    }
+    .login_register_container > .titles > h2{
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 130px;
+        position: relative;
+        left: -5%;
+    }
+    .login_register_container > p {
+        text-align: center;
+    }
+    .login_register_container  > h3{
+        display: none;
+    }
 }
