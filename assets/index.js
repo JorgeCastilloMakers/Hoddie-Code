@@ -21,11 +21,22 @@ const handleLocation = (e) => {
 
     }else if(!localUsersOn){
       location.href = './assets/login.html';
-    }else if(window.confirm("do you want log out?")){
-      localStorage.removeItem("userOn");
-      handleAvatar()
-      var urlPrev = window.location.pathname;
-      location.href = `${urlPrev}`;
+    }else if(localUsersOn){
+      Swal.fire({
+        title: 'Are you sure you want to log out?',
+        color: '#000',
+        showCancelButton: true,
+        confirmButtonColor: '#FFDE59',
+        cancelButtonColor: '#000'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.removeItem("userOn");
+          handleAvatar()
+          var urlPrev = window.location.pathname;
+          location.href = `/index.html`;
+        }
+      })
+
     }else{
       return
     }
@@ -85,9 +96,7 @@ const existingCartProduct = (product) => {
     }
 };
 const addUnitProductFromTemplate = (product) => {
-  console.log(product)
     cart = cart.map((cartProduct) => {
-      console.log(cartProduct)
       return cartProduct.id === product.id && cartProduct.size === product.size
         ? { ...cartProduct, quantity: Number(cartProduct.quantity) + Number(document.getElementById('root').textContent) }
         : cartProduct;
@@ -127,14 +136,12 @@ const addCart = (e) => {
     product.size = changeSize()
     if (existingCartProduct(product)) {
         if (product.quantity == 0){
-            alert("no podes pa");
             return
         }
         addUnitProductFromTemplate(product);
         showMessage("Added a unit from this product")
       } else {
         if (product.quantity == 0){
-            alert("no podes pa");
             return
         }
         createCartProduct(product);
@@ -153,7 +160,6 @@ const addCartFromProductsList = (e) =>{
     let product = productData(id, name, price, img, size, quantity);
     console.log(e.target.dataset.size)
     if (product.size === "Only size"){
-        console.log("ESTOY ACA")
         if (existingCartProduct(product)) {
         
             addUnitProductFromList(product);
@@ -180,7 +186,7 @@ const addCartFromHome = (e) =>{
         if (existingCartProduct(product)) {
         
             addUnitProductFromList(product);
-            showMessage("Added a unit from this product")
+            showMessage(`Added a unit from this product`)
           } else {
             createCartProduct(product);
             showMessage("Product Added to cart")
@@ -195,10 +201,10 @@ const addCartFromHome = (e) =>{
 }
 const showMessage = (msg) => {
     message.classList.add("active-message");
-    message.textContent = msg;
+    message.innerHTML = `${msg}`;
     setTimeout(() => {
       message.classList.remove("active-message");
-    }, 2000);
+    }, 3000);
 };
 
 const renderCounter = () => {
@@ -229,7 +235,6 @@ const init = () => {
     btnFilterReset?.addEventListener('click', resetFilter)
     btnContainer?.addEventListener('click', addCart)
 
-    // document?.addEventListener('DOMContentLoaded', changeSize)
     productsContainer?.addEventListener('click', addCartFromProductsList)
 
     document?.addEventListener("DOMContentLoaded", renderCart(cart));

@@ -91,6 +91,7 @@
 }
 .login_register_container > form > button:hover{
     transform: translateY(-5px);
+    cursor: pointer;
 }
 .login_register_container > form > label{
     font-size: 20px;

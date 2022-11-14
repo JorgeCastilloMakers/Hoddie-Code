@@ -44,5 +44,3 @@ sr.reveal(".cards-latest-products", {
     });
 
 
-
-    cards-latest-products

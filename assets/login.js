@@ -20,7 +20,22 @@ const loginUser = (e) => {
             if (userEl.email === user){
                 if(userEl.password === password){
                     match = true;
-                    location.href = '/index.html';
+                    Swal.fire({
+                        position: 'center',
+                        imageUrl: '/assets/img/success.gif',
+                        title: 'Login successful',
+                        color: '#000',
+                        with: '200px',
+                        imageWidth: 100,
+                        imageHeight: 100,
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true
+                      })
+                      setTimeout(() => {
+                        location.href = '/index.html';
+                      }, 2000);
+                    
                     localStorage.setItem('userOn', JSON.stringify(userEl));
                     return
                 }

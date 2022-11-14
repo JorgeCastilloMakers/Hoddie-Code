@@ -35,13 +35,23 @@ return `
 };
 
 const resetCart = () => {
-    window.confirm("queres borrar el carrito?")
-
-        cart = [];
-        saveLocalStorage();
-        renderCart();
-        renderCounter()
-        renderTotal(cart)
+    Swal.fire({
+        title: 'Do you want to empty the cart?',
+        color: '#000',
+        showCancelButton: true,
+        confirmButtonColor: '#FFDE59',
+        cancelButtonColor: '#000'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            cart = [];
+            saveLocalStorage();
+            renderCart();
+            renderCounter()
+            renderTotal(cart)
+        }else if (result.dismiss){
+            return
+        }
+      })
     
 }
 
@@ -89,7 +99,6 @@ const handleUpBtn = (id, size) => {
     if(size === "Only"){
         size = "Only size"
     }
-    console.log(size)
     const existingCartProduct = cart.find(item => item.id === id && item.size === size);
     
     addUnitProductFromCart(existingCartProduct);
@@ -104,11 +113,22 @@ const handleDownBtn = (id, size) => {
         size = "Only size"
     }
     const existingCartProduct = cart.find(item => item.id === id && item.size === size);
-    if (existingCartProduct.quantity === 1){
-        if(window.confirm("Do you want to remove the product from the cart?")){
-            removeProductFromCart(existingCartProduct)
-        }
-        return;
+    if (existingCartProduct.quantity <= 2){
+
+        Swal.fire({
+            title: 'Do you want to remove the product from the cart??',
+            color: '#000',
+            showCancelButton: true,
+            confirmButtonColor: '#FFDE59',
+            cancelButtonColor: '#000'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                removeProductFromCart(existingCartProduct)
+            }else if (result.dismiss){
+                return
+            }
+          })
+
     }
     subtractProductUnit(existingCartProduct);
 }
@@ -116,10 +136,8 @@ const handleDownBtn = (id, size) => {
 const handleQuantityCart = (e) => {
     if (e.target.classList.contains("down")) {
       handleDownBtn(e.target.dataset.id, e.target.dataset.size);
-      console.log(e.target.dataset.id, e.target.dataset.size)
     } else if (e.target.classList.contains("up")) {
         handleUpBtn(e.target.dataset.id, e.target.dataset.size);
-        console.log(e.target.dataset.id, e.target.dataset.size)
     }
 
 }; 

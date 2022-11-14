@@ -142,9 +142,21 @@ const saveUser = (e) => {
         usersList.push(newUser);
         let users = JSON.stringify(usersList);
         localStorage.setItem('users', users);
-        alert("registro completo")
+        Swal.fire({
+            position: 'center',
+            imageUrl: '/assets/img/success.gif',
+            title: 'Register is complete!',
+            color: '#000',
+            with: '200px',
+            imageWidth: 100,
+            imageHeight: 100,
+            showConfirmButton: false,
+            timer: 1500,
 
-        location.href = './login.html'
+          })
+          setTimeout(() => {
+            location.href = './login.html';
+          }, 1500);
 
     }else{
         registerError.style.display = 'block';
@@ -159,7 +171,7 @@ const suggestEmail = () => {
     emailUser.setAttribute('placeholder', "email@example.com")
 }
 const suggestPassword = () => {
-    passwordUser.setAttribute('placeholder', "Minimum 6 characters, at least uppercase and lowercase letter and number:")
+    passwordUser.setAttribute('placeholder', "Minimum 8 characters, 1 uppercase and lowercase letter and number:")
 }
 
 const removeSuggest = () => {
