@@ -13,7 +13,7 @@ const renderLatestProducts = (list) => {
     latestProducts.innerHTML += `
         <div class="card-product">
         <div class="image_product_container">
-            <img src="${img}" alt="">
+        <a href="/assets/productTemplate.html?type=${collection}&id=${id}"><img src="${img}" alt="product-image"></a>
             <a href="/assets/productTemplate.html?type=${collection}&id=${id}" class="quickview"><i class="fa-solid fa-magnifying-glass"></i></a>
         </div>
         <h3>${name}</h3>

@@ -482,9 +482,9 @@ nav > ul > li:hover{
 @media (max-width: 868px){
     .cart{
         top: 20vh;
-        left: 7vw;
+        left: 0;
         bottom: 0;
-        width:90vw;
+        width:100vw;
     }
     .products-in-cart{
         width: 100%;
@@ -517,7 +517,7 @@ nav > ul > li:hover{
         padding-left: 15%;
     }
     .cart > .cart_titles > p:nth-child(3){
-        padding-left: 5%;
+        padding-left: 15%;
     }
     .cart > .cart_titles > p:nth-child(2){
         font-size: 15px;
@@ -956,15 +956,15 @@ nav > ul > li:hover{
         height: 100vh;
     }
     .media ul{
-        bottom: 60%;
-        left: -50%;
+        bottom: 40%;
+        left: -60%;
     }
     .media ul li {
         font-size: 16px;
     }
     .text{
-        top: 18%;
-        left: -60%;
+        top:30%;
+        left: -70%;
     }
     .text h1 {
         font-size: 100px;
@@ -1006,6 +1006,8 @@ nav > ul > li:hover{
     .distortionMobile > img{
         width: 100%;
         max-width: 370px;
+        position: relative;
+        top: 25%;
     }
 
     .text h5{
@@ -1506,9 +1508,9 @@ display: none;
         font-size: 70px;
         position: absolute;
         letter-spacing: -12px;
-        top: 40%;
+        top: 35%;
         z-index: -1;
-        left: 55%;
+        left: 40%;
         transform: rotate(90deg);
     }
     .collection-title-1-mobile > span{
@@ -1524,9 +1526,9 @@ display: none;
         font-size: 70px;
         position: absolute;
         letter-spacing: -12px;
-        top: 70%;
+        top: 72%;
         z-index: -10;
-        left: -5%;
+        left: -20%;
         transform: rotate(-90deg);
     }
 
