@@ -1,3 +1,5 @@
+
+//Render de template pagina de producto
 const renderProductTemplate = (product) =>{
     lightBoxContainer.style.display = "none"
     renderSize(product[0].size)
@@ -85,6 +87,7 @@ const renderProductTemplate = (product) =>{
 
 }
 
+//Funcion render para filtrar las medidas de cada producto
 const renderSize = (sizeArr) => {
     if (sizeArr === "Only size"){
 
@@ -111,6 +114,8 @@ const renderSize = (sizeArr) => {
     option5.value = `${!size5 ? option5.remove(): size5}`
 
 }
+
+//Funciones para aumentar cantidad de producto a agregar en pagina de producto
 const templatePlusBtn = () => {
 
     quantity= quantity + 1
@@ -129,3 +134,18 @@ const templateMinusBtn = () => {
     }
     return quantity
   };
+
+//Funciones para abrir y cerrar galeria de producto
+const closeGallery = () =>{
+
+    lightBoxContainer.style.display = "none"
+}
+const openGallery = () =>{
+    lightBoxContainer.style.display = "block"
+}
+//Manejador de size
+const changeSize = () => {
+    let size = selectSize.options[selectSize.options.selectedIndex].value
+    return size
+
+}

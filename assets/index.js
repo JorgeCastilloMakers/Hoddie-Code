@@ -1,15 +1,16 @@
+//funcion LocalStorage de carrito
 const saveLocalStorage = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
 };
 
+//Traer usuario logueado
 let localUsersOn = localStorage.getItem('userOn');
 let usersLogOn = [];
-
 if (localUsersOn){
   usersLogOn = JSON.parse(localUsersOn);
 }
 
-
+//Manejador de locacion segun ultima ubicacion
 const handleLocation = (e) => {
   e.preventDefault()
     if((window.location.pathname == '/assets/login.html' ||
@@ -42,6 +43,7 @@ const handleLocation = (e) => {
     }
 };
 
+//Funcion para manejar si se esta logueado o no y redirigir
 const handleAvatar = () =>{
   if(!localUsersOn){
     nameAcount.innerText = 'Login';
@@ -50,13 +52,14 @@ const handleAvatar = () =>{
   }
 };
 
+//Funcion render de cards de productos para Home y para collecciones
 const renderCardProducts = (lista) => {
 
     const { id, name, category, price, technologie, size, img } = lista
         productsContainer.innerHTML += `
         <div class="card-product">
         <div class="image_product_container">
-            <img src="${img}" alt="">
+            <a href="/assets/productTemplate.html?type=${tipo}&id=${id}"><img src="${img}" alt="product-image-${name}"></a>
             <a href="/assets/productTemplate.html?type=${tipo}&id=${id}" class="quickview"><i class="fa-solid fa-magnifying-glass"></i></a>
         </div>
         <h3>${name}</h3>
@@ -75,19 +78,7 @@ const renderCardProducts = (lista) => {
 
 let quantity = 1;
 
-const closeGallery = () =>{
-
-    lightBoxContainer.style.display = "none"
-}
-const openGallery = () =>{
-    lightBoxContainer.style.display = "block"
-}
-
-const changeSize = () => {
-    let size = selectSize.options[selectSize.options.selectedIndex].value
-    return size
-
-}
+//Verifica si existe el producto
 const existingCartProduct = (product) => {
 
     let result = cart.find((item) => item.id === product.id && item.size === product.size);
@@ -95,6 +86,7 @@ const existingCartProduct = (product) => {
       return true;
     }
 };
+//Si existe el producto agrega una unidad
 const addUnitProductFromTemplate = (product) => {
     cart = cart.map((cartProduct) => {
       return cartProduct.id === product.id && cartProduct.size === product.size
@@ -102,6 +94,7 @@ const addUnitProductFromTemplate = (product) => {
         : cartProduct;
     });
 };
+//Si existe el producto agrega una unidad para productos sin opciones
 const addUnitProductFromList = (product) => {
     cart = cart.map((cartProduct) => {
       return cartProduct.id === product.id 
@@ -109,7 +102,7 @@ const addUnitProductFromList = (product) => {
         : cartProduct;
     });
 };
-
+//Manejador de cantidad en el carrito
 const handleQuantity = (e) => {
     if (e.target.classList.contains("down")) {
       templateMinusBtn(e.target.dataset.id);
@@ -118,15 +111,15 @@ const handleQuantity = (e) => {
     }
 
 }; 
-
+//Funcion creador de productos para el carrito
 const createCartProduct = (product) => {
     cart = [...cart, { ...product, quantity }];
   };
+//Constructor de producto
 const productData = (id, name, price, img, size, quantity) => {
     return { id, name, price, img, size, quantity };
   };
-
-
+//Agregar producto al carrito desde el template de prodcuto segun la cantidad del manejador
 const addCart = (e) => {
     if (!e.target.classList.contains("add-cart-btn")) return;
     
@@ -152,7 +145,7 @@ const addCart = (e) => {
     renderCart();
     renderTotal(cart)
 }
-
+//Agregar producto al carrito desde colleciones
 const addCartFromProductsList = (e) =>{
     if (!e.target.classList.contains("add-cart")) return;
     
@@ -176,7 +169,7 @@ const addCartFromProductsList = (e) =>{
         location.href = `/assets/productTemplate.html?type=${tipo}&id=${product.id}`
     }
 }
-
+//Agregaro producto al carrito desde Home
 const addCartFromHome = (e) =>{
     if (!e.target.classList.contains("add-cart-from-home")) return;
     
@@ -195,10 +188,11 @@ const addCartFromHome = (e) =>{
         renderCounter()
         renderCart();
         renderTotal(cart)
-    }else if(product.size != "null"){
-        location.href = `/assets/productTemplate.html?type=${product.collection}&id=${product.id}`
+    }else if(product.size != "Only size"){
+        location.href = `/assets/productTemplate.html?type=${collection}&id=${product.id}`
     }
 }
+//Mensaje de producto agregado al carrito
 const showMessage = (msg) => {
     message.classList.add("active-message");
     message.innerHTML = `${msg}`;
@@ -206,12 +200,12 @@ const showMessage = (msg) => {
       message.classList.remove("active-message");
     }, 3000);
 };
-
+//Contador del carrito
 const renderCounter = () => {
     let count = cart.length;
     countCart.innerText = count
 }
-
+//Funcion init
 const init = () => {
     handleAvatar()
     renderCart();

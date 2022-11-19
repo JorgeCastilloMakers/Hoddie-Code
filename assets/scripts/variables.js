@@ -1,3 +1,4 @@
+//Array de productos
 let products = [
     {
         id: 1,
@@ -35,7 +36,12 @@ let products = [
         technologie: "sass",
         collection: "frontend",
         size: ["small", "large", "medium", "extra-large", "extra-extra-large"],
-        img: "/assets/img/front/sweat-sass.png"
+        img: "/assets/img/front/sweat-sass.png",
+        imgBig: "/assets/img/front/sweat-sass-big.png",
+        imgGallery1: "/assets/img/front/sweat-sass-gallery1.png",
+        imgGallery2: "/assets/img/front/sweat-sass-gallery2.png",
+        imgGallery3: "/assets/img/front/sweat-sass-gallery3.png",
+        imgGallery4: "/assets/img/front/sweat-sass-gallery4.png",
     }, {
         id: 4,
         name: "Kangaroo Hoddie UNITY",
@@ -86,7 +92,12 @@ let products = [
         technologie: "react",
         collection: "frontend",
         size: ["small", "large", "medium", "extra-large", "extra-extra-large"],
-        img: "/assets/img/front/sweat-react.png"
+        img: "/assets/img/front/sweat-react.png",
+        imgBig: "/assets/img/front/sweat-react-big.png",
+        imgGallery1: "/assets/img/front/sweat-react-gallery1.png",
+        imgGallery2: "/assets/img/front/sweat-react-gallery2.png",
+        imgGallery3: "/assets/img/front/sweat-react-gallery3.png",
+        imgGallery4: "/assets/img/front/sweat-react-gallery4.png"
     },{
         id: 8,
         name: "Kangaroo Hoddie JAVASCRIPT",
@@ -123,7 +134,12 @@ let products = [
         technologie: "typescript",
         collection: "frontend",
         size: ["small", "large", "medium", "extra-large", "extra-extra-large"],
-        img: "/assets/img/front/sweat-ts.png"
+        img: "/assets/img/front/sweat-ts.png",
+        imgBig: "/assets/img/front/sweat-ts-big.png",
+        imgGallery1: "/assets/img/front/sweat-ts-gallery1.png",
+        imgGallery2: "/assets/img/front/sweat-ts-gallery2.png",
+        imgGallery3: "/assets/img/front/sweat-ts-gallery3.png",
+        imgGallery4: "/assets/img/front/sweat-ts-gallery4.png",
     },{
         id: 11,
         name: "Sweatshirt RUBY",
@@ -132,7 +148,12 @@ let products = [
         technologie: "ruby",
         collection: "backend",
         size: ["small", "large", "medium", "extra-large", "extra-extra-large"],
-        img: "/assets/img/back/sweat-ruby.png"
+        img: "/assets/img/back/sweat-ruby.png",
+        imgBig: "/assets/img/back/sweat-ruby-big.png",
+        imgGallery1: "/assets/img/back/sweat-ruby-gallery1.png",
+        imgGallery2: "/assets/img/back/sweat-ruby-gallery2.png",
+        imgGallery3: "/assets/img/back/sweat-ruby-gallery3.png",
+        imgGallery4: "/assets/img/back/sweat-ruby-gallery4.png",
     },{
         id: 12,
         name: "Kangaroo Hoddie JAVASCRIPT",
@@ -265,28 +286,21 @@ let products = [
         imgGallery4: "/assets/img/front/snapback-sass-gallery4.png",
     }];
 
-const latestProducts = document.getElementById('latestProducts')
+const latestProducts = document.getElementById('latestProducts') //Contenedor productos home
+const productsContainer = document.getElementById('products_container');// Contenedor productos pagina de collecion
+const breadCrumbs = document.getElementById('collectionFilter');// Conteneder de enlaces migas de pan
+const filtros = document.getElementById('filters');//Contenedor de filtros
+const template = document.getElementById('template');//Contenedor template de pagina de producto
+const selectSize = document.getElementById('selectSize')//Select de la pagina de producto
+const option1 = document.getElementById('option1')//Option de select Size
+const option2 = document.getElementById('option2')//Option de select Size
+const option3 = document.getElementById('option3')//Option de select Size
+const option4 = document.getElementById('option4')//Option de select Size
+const option5 = document.getElementById('option5')//Option de select Size
+let cart = JSON.parse(localStorage.getItem("cart")) || [];//LS
+const lightBoxContainer = document.querySelector('.lightBox_container')//Caja overlay de galeria de imagenes producto
 
-const productsContainer = document.getElementById('products_container');
-
-const breadCrumbs = document.getElementById('collectionFilter');
-
-const filtros = document.getElementById('filters');
-
-const template = document.getElementById('template');
-const selectSize = document.getElementById('selectSize')
-const option1 = document.getElementById('option1')
-const option2 = document.getElementById('option2')
-const option3 = document.getElementById('option3')
-const option4 = document.getElementById('option4')
-const option5 = document.getElementById('option5')
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-const btnContainer = document.getElementById('btn-add')
-
-const lightBoxContainer = document.querySelector('.lightBox_container')
-
+//Menu mobile
 const icon = document.getElementById('icon');
 const menu = document.getElementById('menu');
 
@@ -298,13 +312,10 @@ const cartProducts = document.getElementById('cartProducts')
 const totalCart = document.getElementById('total')
 const countCart = document.getElementById('counter')
 const resetCartBtn = document.getElementById('empty-cart')
-// const openCheckout = document.getElementById('open-checkout')
 
-
-const message = document.querySelector('.add-message')
-
-const btnFilter = document.getElementById('btn-filter')
-const btnFilterReset = document.getElementById('btn-filter-reset')
+const message = document.querySelector('.add-message')//Container mensaje producto agregado
+const btnFilter = document.getElementById('btn-filter')//boton filtrar
+const btnFilterReset = document.getElementById('btn-filter-reset')//Boton reset filtros
 
 //Register Form
 const formRegister = document.getElementById('register-form');
@@ -329,4 +340,5 @@ const nameAcount = document.getElementById('nameAcount');
 
 //Checkout
 const checkoutModal = document.getElementById('checkout-modal');
+const btnContainer = document.getElementById('btn-add')
 
