@@ -20,7 +20,7 @@
 }
 
 .register__container > div:nth-child(1){
-    background-image: url('.assets/img/front/tshirt-css-big.png');
+    background-image: url('/assets/img/front/tshirt-css-big.png');
     background-size: cover;
     background-position: center;
     clip-path: polygon(50% 100%, 0 0, 100% 0);
@@ -28,7 +28,7 @@
     left: 30%;
 }
 .register__container > div:nth-child(2){
-    background-image: url('.assets/img/front/tshirt-vue-gallery2.png');
+    background-image: url('/assets/img/front/tshirt-vue-gallery2.png');
     background-size: cover;
     background-position: center;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
@@ -36,7 +36,7 @@
     left: 20% ;
 }
 .register__container > div:nth-child(3){
-    background-image: url('.assets/img/back/hoddie-kotlin-big.png');
+    background-image: url('/assets/img/back/hoddie-kotlin-big.png');
     background-size: cover;
     background-position: center;
     clip-path: polygon(50% 100%, 0 0, 100% 0);
@@ -45,7 +45,7 @@
 
 }
 .register__container > div:nth-child(4){
-    background-image: url('.assets/img/back/hoddie-js-logo-big.png');
+    background-image: url('/assets/img/back/hoddie-js-logo-big.png');
     background-size: cover;
     background-position: center;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
@@ -54,7 +54,7 @@
 
 }
 .register__container > div:nth-child(5){
-    background-image: url('.assets/img/back/hoddie-mongo-big.png');
+    background-image: url('/assets/img/back/hoddie-mongo-big.png');
     background-size: cover;
     background-position: center;
     clip-path: polygon(50% 100%, 0 0, 100% 0);
@@ -63,7 +63,7 @@
 
 }
 .register__container > div:nth-child(6){
-    background-image: url('assets/img/front/react-gallery4.png');
+    background-image: url('/assets/img/front/react-gallery4.png');
     background-size: cover;
     background-position: center;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
@@ -72,7 +72,7 @@
 
 }
 .register__container > div:nth-child(7){
-    background-image: url('assets/img/front/tshirt-gatsby-gallery4.png');
+    background-image: url('/assets/img/front/tshirt-gatsby-gallery4.png');
     background-size: cover;
     background-position: center;
     clip-path: polygon(50% 100%, 0 0, 100% 0);

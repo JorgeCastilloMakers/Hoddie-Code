@@ -52,13 +52,6 @@ const closeCheckoutModal = () => {
 
 btnCloseCheckout.addEventListener('click', closeCheckoutModal)
 
-let payMethodSelected = payMethod.options[payMethod.selectedIndex].value;
-
-const clientName = "Name: "
-const clientEmail = "Email: "
-const clientAddress = "Address: "
-const payWith = "Pay method: ";
-const totalTicket = `Total: $${cartTotal()}`;
 
 const prepareTicket = (orderCart) => {
     const { id, name, size, quantity, price} = orderCart;  
@@ -66,7 +59,7 @@ const prepareTicket = (orderCart) => {
     return ticket
 }
 
-let buildTicket =  cart.map(prepareTicket).join("");
+
 
 const takeDataOrder = () => {
     if(!nameBilling.value || !emailBilling.value || !addressBilling.value){
@@ -77,6 +70,7 @@ const takeDataOrder = () => {
             showConfirmButton: false,
             timer: 1500,
           })
+          return
 
     }else if(!cart.length){
         if(!cart.length){
@@ -90,6 +84,14 @@ const takeDataOrder = () => {
             }
         return
     }
+    let payMethodSelected = payMethod.options[payMethod.selectedIndex].value;
+
+    const clientName = "Name: "
+    const clientEmail = "Email: "
+    const clientAddress = "Address: "
+    const payWith = "Pay method: ";
+    const totalTicket = `Total: $${cartTotal()}`;
+    let buildTicket =  cart.map(prepareTicket).join("");
     let mensaje = `https://api.whatsapp.com/send?phone=5491162744478&text=
                     ${clientName}%20${nameBilling.value}%0A
                     ${clientEmail}%20${emailBilling.value}%0A
@@ -114,6 +116,7 @@ const takeDataOrder = () => {
             saveLocalStorage();
             renderCart();
             renderCounter()
+            renderOrder();
             renderTotal(cart)
             closeCheckoutModal()
         }else if (result.dismiss){

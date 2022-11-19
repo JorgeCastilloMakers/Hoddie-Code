@@ -8,7 +8,7 @@
     position: absolute;
     top: 25%;
     left: 10%;
-    background-color: #fafafad3;
+    background-color: #fafafa;
     box-shadow: 3px 7px 14px -7px rgba(0,0,0,0.75);
     border-radius: 5px;
     backdrop-filter: blur(2px);
@@ -139,8 +139,8 @@
     .login_register_container{
         width: 100vw;
         height: 100vh;
-        top: 30%;
-        left: 0%;position: relative;
+        top: 20%;
+        left: 0%;
         margin-top: 5%;
         margin-bottom: 5%;
         box-shadow: unset;
